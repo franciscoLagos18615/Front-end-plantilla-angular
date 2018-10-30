@@ -1,0 +1,75 @@
+
+
+<!--Diferente-->
+
+<div class="main-content">
+    <h3 class="text-center">&nbsp; Remesa, <small> numero...</small></h3>
+    
+    <button [routerLink]= "['/remesas']" 
+    class="btn btn-danger ">Regresar</button>
+  
+
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h3 class="card-title">Creando Remesa</h3>
+                        
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="guardar()" #forma="ngForm">
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="remesa.request"
+                                    name="request"
+                                    class="form-control"
+                                    placeholder="Solicitud"
+                                    >
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                 
+                                      <label>Estado</label>
+                                      <select [(ngModel)]="remesa.status"
+                                      class="form-control" name="status">
+                                        <option>Aprobado</option>
+                                        <option>Aprobado Parcialmente</option>
+                                        <option>Rechazado</option>
+                                      </select>
+                                  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input  matInput  [(ngModel)]="remesa.governance"
+                                    name="governance"
+                                    placeholder="Gobernacion" type="text"
+                                     >
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                           
+                          
+                            <button [disabled]="!forma.valid"
+                            mat-raised-button type="submit" class="btn btn-info pull-right">Guardar Remesa</button>
+                            
+                            {{forma.valid}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  

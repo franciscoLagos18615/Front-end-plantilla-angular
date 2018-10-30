@@ -1,0 +1,60 @@
+
+     
+<div class="main-content">
+          
+  <div class="container-fluid">
+      <div class="row text-center">
+                <div class="col-md-12 text-center">
+                    <button [routerLink]="['/remesa',0]"
+                     mat-raised-button type="submit" class="btn btn-info pull-right">NUEVA REMESA</button>
+                 </div>
+              </div>
+           
+       <br> 
+        
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title text-center">LISTADO DE REMESAS</h4>
+                      <p > Listado de remesas por validar</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped">
+                              <thead class=" text-primary">
+                                  <th>ID</th>
+                                  <th>
+                                      Solicitud</th>
+                                  <th>
+                                      Estado  </th>
+                                  <th>
+                                      Opciones </th>
+                                 
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let remesa of remesas">
+                                    <td>{{remesa.id_consignment}}</td>
+                                    <td>{{remesa.request}}</td>
+                                    <td>{{remesa.status}}</td>
+                                    <td>
+                                    <button [routerLink]="['/remesa', remesa.id_consignment]"
+                                    type="button" class="btn btn-outline-success">
+                                        Editar
+                                    </button>
+
+                                    </td>
+                                    
+
+                                  </tr>
+                                                   
+                                  
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
