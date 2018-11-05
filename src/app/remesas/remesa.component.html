@@ -15,8 +15,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h3 class="card-title">Creando Remesa</h3>
-                        
+                        <h3 *ngIf="remesa.request!=='' " class="card-title">Editando Remesa</h3>
+                        <h3 *ngIf="remesa.request=='' " class="card-title">Creando Remesa</h3>
                     </div>
                     <div class="card-body">
                         <form (ngSubmit)="guardar()" #forma="ngForm">
@@ -41,7 +41,8 @@
                                       <label>Estado</label>
                                       <select [(ngModel)]="remesa.status"
                                       class="form-control" name="status">
-                                        <option>Aprobado</option>
+                                      <option>Por Revisar</option>  
+                                      <option>Aprobada</option>
                                         <option>Aprobado Parcialmente</option>
                                         <option>Rechazado</option>
                                       </select>
@@ -63,6 +64,8 @@
                             <button [disabled]="!forma.valid"
                             mat-raised-button type="Submit" class="btn btn-info pull-right"
                             >Guardar Remesa</button >
+
+                            
                             <div *ngIf="seCreo" class="alert alert-primary" role="alert">
                                     Remesa creada correctamente
                                   </div>

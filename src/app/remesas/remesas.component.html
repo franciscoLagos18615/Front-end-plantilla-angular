@@ -41,15 +41,20 @@
                                         &nbsp;
                                         &nbsp;
                                         &nbsp;
-                                        
-                                    <button  [routerLink]="['/remesa', remesas[k].id_consignment]"
-                                    type="button" class="btn btn-outline-success" >
+                                     <button  [routerLink]="['/remesa', remesas[k].id_consignment]"
+                                        type="button" class="btn btn-outline-info btn-sm" >
+                                        <i class="fas fa-align-justify"></i>
+                                        Ver
+                                        </button>
+                                    <button  
+                                    [routerLink]="['/remesa', remesas[k].id_consignment]"
+                                    type="button" class="btn btn-outline-success btn-sm" >
                                     <i class="fas fa-edit"></i>
                                     Editar
                                     </button>
                                     <button 
                                     (click)="borraRemesa(remesas[k].id_consignment)"
-                                    type="button" class="btn btn-outline-danger">
+                                    type="button" class="btn btn-outline-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i>
                                         Eliminar
                                     </button>

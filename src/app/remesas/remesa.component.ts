@@ -17,7 +17,7 @@ export class RemesaComponent implements OnInit {
 
   remesa: Remesa = {
     request:"",
-    status:'Aprobado',
+    status:"Por Revisar",
     governance:"",
 
   };
@@ -28,11 +28,24 @@ export class RemesaComponent implements OnInit {
   seActualizo:boolean = false;
   constructor(private _remesasService: RemesasService, private router:Router, private route:ActivatedRoute ) { 
     /** */
+
+    
     this.route.params
       .subscribe(
-      parametros => this.id = parametros['id']
+      (parametros) => {
+        this.id = parametros['id']
 
-    );
+        let ide : number = this.id;
+        console.log("el id es este numero" , ide);
+        console.log(this.id)
+        if(ide > 0){
+          console.log("es distinto de 0")
+
+          this._remesasService.getRemesa(this.id)
+            .subscribe(data => this.remesa = data)
+        }
+
+      });
     /** this.route.params
       .subscribe(
       parametros => {
@@ -46,12 +59,15 @@ export class RemesaComponent implements OnInit {
       }
 
     );*/
+   
 
   }
 
   ngOnInit() {
   }
   
+
+
   guardar() {
     console.log(this.remesa);
 
@@ -68,9 +84,7 @@ export class RemesaComponent implements OnInit {
 
     }
     else{
-      console.log("este es el id:");
-      console.log(this.id);
-      console.log("djjdjd");
+     
       this._remesasService.actualizarRemesa(this.remesa, this.id)
         .subscribe(data =>{
           this.seActualizo=true;
