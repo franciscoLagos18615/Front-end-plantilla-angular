@@ -28,19 +28,30 @@
                                       Solicitud</th>
                                   <th>
                                       Estado  </th>
-                                  <th>
+                                  <th class="text-center">
                                       Opciones </th>
                                  
                               </thead>
                               <tbody>
-                                  <tr *ngFor="let remesa of remesas">
-                                    <td>{{remesa.id_consignment}}</td>
-                                    <td>{{remesa.request}}</td>
-                                    <td>{{remesa.status}}</td>
-                                    <td>
-                                    <button [routerLink]="['/remesa', remesa.id_consignment]"
-                                    type="button" class="btn btn-outline-success">
-                                        Editar
+                                  <tr *ngFor=" let k of remesas | keys; let i = index">
+                                    <td>{{remesas[k].id_consignment}}</td>
+                                    <td>{{remesas[k].request}}</td>
+                                    <td>{{remesas[k].status}}</td>
+                                    <td class="text-center">
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        
+                                    <button  [routerLink]="['/remesa', remesas[k].id_consignment]"
+                                    type="button" class="btn btn-outline-success" >
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                    </button>
+                                    <button 
+                                    (click)="borraRemesa(remesas[k].id_consignment)"
+                                    type="button" class="btn btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                        Eliminar
                                     </button>
 
                                     </td>

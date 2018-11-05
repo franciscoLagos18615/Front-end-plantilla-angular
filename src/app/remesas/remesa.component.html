@@ -61,9 +61,17 @@
                            
                           
                             <button [disabled]="!forma.valid"
-                            mat-raised-button type="submit" class="btn btn-info pull-right">Guardar Remesa</button>
+                            mat-raised-button type="Submit" class="btn btn-info pull-right"
+                            >Guardar Remesa</button >
+                            <div *ngIf="seCreo" class="alert alert-primary" role="alert">
+                                    Remesa creada correctamente
+                                  </div>
+                             <div *ngIf="seActualizo" class="alert alert-success" role="alert">
+                                     Remesa actualizada correctamente
+                              </div>
                             
-                            {{forma.valid}}
+                            
+                            
                         </form>
                     </div>
                 </div>

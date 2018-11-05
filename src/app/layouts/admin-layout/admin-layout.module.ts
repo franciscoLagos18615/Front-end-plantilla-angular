@@ -1,3 +1,4 @@
+import { KeysPipe } from './../../pipes/keys.pipe';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -14,6 +15,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {RemesaComponent} from '../../remesas/remesa.component';
 import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 import {
@@ -45,6 +48,7 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     RemesaComponent,
+    KeysPipe,
   ]
 })
 

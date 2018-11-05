@@ -24,6 +24,8 @@ export class RemesaComponent implements OnInit {
 
   nuevo: boolean = false;
   id: number;
+  seCreo:boolean = false;
+  seActualizo:boolean = false;
   constructor(private _remesasService: RemesasService, private router:Router, private route:ActivatedRoute ) { 
     /** */
     this.route.params
@@ -59,6 +61,7 @@ export class RemesaComponent implements OnInit {
       this._remesasService.nuevaRemesa(this.remesa)
       .subscribe(data=>{
         this.router.navigate(['/remesa',this.id]);
+        this.seCreo=true;
 
       },
       error => console.error(error));
@@ -70,6 +73,7 @@ export class RemesaComponent implements OnInit {
       console.log("djjdjd");
       this._remesasService.actualizarRemesa(this.remesa, this.id)
         .subscribe(data =>{
+          this.seActualizo=true;
           
           console.log(data);
 
