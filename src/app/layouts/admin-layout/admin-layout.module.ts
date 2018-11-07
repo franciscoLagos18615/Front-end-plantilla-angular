@@ -1,3 +1,5 @@
+
+
 import { KeysPipe } from './../../pipes/keys.pipe';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -14,7 +16,9 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {RemesaComponent} from '../../remesas/remesa.component';
+import { RemesadetailComponent } from './../../remesas/remesadetail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ItemsComponent } from './../../items/items.component';
 
 
 
@@ -48,6 +52,8 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     RemesaComponent,
+    RemesadetailComponent,
+    ItemsComponent,
     KeysPipe,
   ]
 })

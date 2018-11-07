@@ -22,10 +22,15 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { RemesaComponent } from './remesas/remesa.component';
+import { RemesadetailComponent } from './remesas/remesadetail.component';
+import { ItemsComponent } from './items/items.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
+
 
 
 

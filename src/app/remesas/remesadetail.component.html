@@ -1,0 +1,127 @@
+<div class="main-content">
+    <button [routerLink]= "['/remesas']" 
+    class="btn btn-outline-success "> <i class="fas fa-arrow-circle-left"> Listado Remesas</i></button>
+
+    <div class="container-fluid">
+
+        
+       
+   <br> 
+      <div class="card card-plain">
+             
+         <br> 
+         <div class="card-header card-header-danger">
+            <h3 class="card-title text-center">Detalles de la remesa Nº {{remesas.id_consignment}}</h3>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                <table class="table table-hover">
+                   
+                    <tbody >
+                      <tr>
+                        <th scope="row">1</th>
+                        <td><strong>Solicitud:</strong></td>
+                        <td>{{remesas.request}}</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td><strong>Estado:</strong></td>
+                        <td>{{remesas.status}}</td>
+                    
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td ><strong>Gobernacion:</strong></td>
+                        <td>{{remesas.governance}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!--FIN DE LA TABLA, AHORA AGREGAR UN BOTON PARA NUEVOS ITEMS-->
+
+                </div>
+          
+            </div>
+        </div>
+        <!--fin de row-->
+        <div class="row text-center">
+            <div class="col-md-12 text-center">
+                <button [routerLink]="['/remesa',0,'item',0]"
+                 mat-raised-button type="submit" class="btn btn-info pull-right"><i class="fas fa-plus-circle" style="size:5x;"></i> NUEVO ITEM</button>
+             </div>
+             
+          </div>
+       <br> 
+
+       <!--Fin del boton agregar item-->
+       <div class="card-header card-header-danger">
+          <h3 class="card-title text-center">Listado de items</h3>
+          
+      </div>
+       <!--listado de items-->
+       <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                      
+                      <thead class="">
+                        <tr>
+                          <th > <small><strong>Opciones</strong></small></th>
+                          <th ><small><strong>Id Item</strong></small></th>
+                          <th ><small><strong>Tipo Gasto</strong></small></th>
+                          <th ><small><strong>Resolucion</strong></small></th>
+                          <th ><small><strong>Orden de compra</strong></small></th>
+                          <th ><small><strong>NºFactura o boleta</strong></small></th>
+                          <th ><small><strong>Rut</strong></small></th>
+                          <th ><small><strong>Proveedor</strong></small></th>
+                          <th ><small><strong>Detalle</strong></small></th>
+                          <th ><small><strong>Monto</strong></small></th>
+                          <th ><small><strong>Item Presupuestario</strong></small></th>
+                          <th ><small><strong>Nombre Item</strong></small></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th >1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Larry</td>
+                          <td>servicio telefonia- noviembre</td>
+                          <td>@twitter</td>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+
+              </div>
+        
+          </div>
+      </div>
+      </div>
+    </div>
+</div>

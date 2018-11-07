@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { RemesasService } from '../services/remesas.service';
-
+import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,13 +25,13 @@ export class TableListComponent implements OnInit {
   }
 
   allRemesas(){
-    
     this._remesasService.getRemesas()
       .subscribe(data =>{
         this.remesas = data;
       });
   }
 
+  //metodo para borrar una remesa
   borraRemesa(key$: number){
 
     //this._remesasService.borrarRemesa(key$)
@@ -47,5 +47,8 @@ export class TableListComponent implements OnInit {
       )
      }
   }
+
+  //metodo para obtener una remesa
+
 
 }
