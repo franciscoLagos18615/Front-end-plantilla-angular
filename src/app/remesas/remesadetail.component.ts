@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RemesadetailComponent implements OnInit {
   remesas: any[] = [];
   id: number;
+  items: any[]=[];
+  
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) { 
 
     this.route.params
@@ -27,6 +29,11 @@ export class RemesadetailComponent implements OnInit {
             .subscribe(data => {
               this.remesas = data;
               console.log("esta es la remesa",data)
+            })
+            this.getItemForRemesa(this.id)
+            .subscribe(items => {
+              this.items = items;
+              console.log("esto son los items",items)
             });
       });
 
@@ -46,6 +53,16 @@ export class RemesadetailComponent implements OnInit {
           res => res.json()
 
         )
+      );
+  }
+
+  //metodo que retorna el listado de items de una remesa
+  getItemForRemesa(id_consignment$: number){
+    let itemURL = 'http://localhost:8080/api/consignment/'
+    let itemAllForRemesas = `${itemURL}${id_consignment$}/items`;
+    return this.http.get(itemAllForRemesas)
+      .pipe(
+        map(res => res.json() )
       );
   }
 

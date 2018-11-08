@@ -58,7 +58,7 @@
        <br> 
 
        <!--Fin del boton agregar item-->
-       <div class="card-header card-header-danger">
+       <div class="card-header card-header-success">
           <h3 class="card-title text-center">Listado de items</h3>
           
       </div>
@@ -72,6 +72,7 @@
                       <thead class="">
                         <tr>
                           <th > <small><strong>Opciones</strong></small></th>
+                          <th ><small><strong>Estado</strong></small></th>
                           <th ><small><strong>Id Item</strong></small></th>
                           <th ><small><strong>Tipo Gasto</strong></small></th>
                           <th ><small><strong>Resolucion</strong></small></th>
@@ -86,31 +87,20 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th >1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Larry</td>
-                          <td>servicio telefonia- noviembre</td>
-                          <td>@twitter</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
+                        <tr *ngFor=" let k of items | keys; let i = index">
+                          <th><button type="button" class="btn btn-info btn-sm">Validar Item</button> <button type="button" class="btn btn-danger btn-sm">Rechazar item</button></th>
+                          <td>{{items[k].status}}</td>
+                          <td>{{items[k].item_id}}</td>
+                          <td>{{items[k].type_gast}}</td>
+                          <td>{{items[k].resolution}}</td>
+                          <td>{{items[k].purchase_order}}</td>
+                          <td>{{items[k].bill_number}}</td>
+                          <td>{{items[k].rut}}</td>
+                          <td>{{items[k].provider}}</td>
+                          <td>{{items[k].detail}}</td>
+                          <td>{{items[k].money}}</td>
+                          <td>{{items[k].budget_item}}</td>
+                          <td>{{items[k].name_item}}</td>
                           
                         </tr>
                         
