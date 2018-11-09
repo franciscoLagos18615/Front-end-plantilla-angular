@@ -46,26 +46,13 @@ export class RemesaComponent implements OnInit {
         }
 
       });
-    /** this.route.params
-      .subscribe(
-      parametros => {
-
-        this.id = parametros['id']
-        if(this.id!==0){
-          this._remesasService.getRemesa(this.id)
-            .subscribe(data => this.remesa = data);
-        }
-
-      }
-
-    );*/
-   
+  
 
   }
 
   ngOnInit() {
   }
-  
+
 
 
   guardar() {

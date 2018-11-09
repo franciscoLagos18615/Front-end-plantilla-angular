@@ -46,8 +46,8 @@ export class RemesasService {
 
   }
 
-   
 
+//metodo que obtiene una remesa
    getRemesa(id_consignment$: number){
      let url = `${this.remesaURL}${id_consignment$}`;
      return this.http.get(url)

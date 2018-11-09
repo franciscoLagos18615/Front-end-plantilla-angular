@@ -41,4 +41,33 @@ export class ItemsService {
       );
   }
 
+  //metodo para editar un item
+  //consignment/{consignmentId}/item/{itemId}
+  actualizarItem(item: Item, id_consignment$: number, item_id$: number) {
+    let body = JSON.stringify(item);
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+    let url = `${this.itemURL}${id_consignment$}/item/${item_id$}`;
+     return this.http.put(url, body, { headers})
+       .pipe(
+         map(res => {
+           console.log(res);
+           return res; }
+           ));
+
+  }
+
+  //metodo que obtiene un item
+ //consignment/{consignmentId}/item/{itemId}
+  getItem(id_consignment$: number, item_id$: number){
+    let url = `${this.itemURL}${id_consignment$}/item/${item_id$}`;
+    return this.http.get(url)
+      .pipe(
+        map(
+          res => res.json()
+        )
+      );
+  }
+
 }

@@ -21,7 +21,7 @@ export class ItemsComponent implements OnInit {
     purchase_order: "",
     resolution: 1,
     rut: "",
-    status: "",
+    status: "Por revisar",
     type_gast: "cambio prueba nueva",
 
   };
@@ -44,6 +44,12 @@ export class ItemsComponent implements OnInit {
       (parametros) => {
         this.id = parametros['id']
         console.log("id del item",this.id)
+        if(this.id2 !== '0'){
+          console.log("es distinto de 0")
+
+          this._itemsService.getItem( this.id1, this.id2)
+            .subscribe(data => this.item = data)
+        }
 
 
       });
@@ -54,20 +60,37 @@ export class ItemsComponent implements OnInit {
   }
 
   guardarItem(){
-    console.log("este es el item",this.item)
-    let numberId1: number = this.id1;
-    this._itemsService.nuevoItem(this.item,this.id1)
-    .subscribe(data=>{
+
+    if( this.id2 === '0' ){
+      console.log("este es el item",this.item)
+    
+      this._itemsService.nuevoItem(this.item,this.id1)
+      .subscribe(data=>{
       
 
       let ruta= `/remesa/${this.id1}/item/${this.id2}`
       console.log("ruta es", ruta)
       this.router.navigateByUrl(ruta);
-      
+
       this.seCreo=true;
+
+      },
+      error => console.error(error));
+
+    }
+
+    else{
+      console.log("es edit")
+      this._itemsService.actualizarItem(this.item,this.id1, this.id2)
+      .subscribe(data =>{
+        this.seActualizo=true;
+
+        console.log(data);
 
     },
     error => console.error(error));
+    }
+
 
 
   }
