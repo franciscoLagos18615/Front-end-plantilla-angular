@@ -62,13 +62,13 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'remesas',     component: TableListComponent },
     { path: 'remesa/:id',     component: RemesaComponent },
     { path: 'remesaDetail/:id',     component: RemesadetailComponent },
-    { path: 'remesa/:id/item/:id',     component: ItemsComponent },
+    { path: 'remesa/:id1/item/:id2',     component: ItemsComponent },
     { path: 'presupuestos',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: '',               redirectTo: 'home', pathMatch: 'full' },
+    { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 

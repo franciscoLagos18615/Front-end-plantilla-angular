@@ -1,3 +1,4 @@
+import { ItemsService } from './services/items.service';
 import { RemesasService } from './services/remesas.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -51,7 +52,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
 
   ],
-  providers: [RemesasService],
+  providers: [RemesasService, ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

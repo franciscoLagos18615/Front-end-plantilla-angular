@@ -50,7 +50,8 @@
         <!--fin de row-->
         <div class="row text-center">
             <div class="col-md-12 text-center">
-                <button [routerLink]="['/remesa',0,'item',0]"
+                <button 
+                [routerLink]="['/remesa', remesas.id_consignment,'item', 0]"
                  mat-raised-button type="submit" class="btn btn-info pull-right"><i class="fas fa-plus-circle" style="size:5x;"></i> NUEVO ITEM</button>
              </div>
              

@@ -15,14 +15,14 @@ export class ItemsService {
 
   //metodo para un nuevo item de acuerdo a un id_consignment
 
-  nuevoItem(item: Item, id_consignment$: number, item_id$: number) {
+  nuevoItem(item: Item, id_consignment$: number) {
     let body = JSON.stringify(item);
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-  let itemNewUrl = `${this.itemURL}/${id_consignment$}/item/new`;
-  console.log("esta es la url del item nuevo",url);
-   return this.http.post(itemNewUrl, body, { headers})
+    let itemNewUrl = `${this.itemURL}${id_consignment$}${"/item/new"}`;
+    console.log("esta es la url del item nuevo",itemNewUrl);
+     return this.http.post(itemNewUrl, body, { headers})
        .pipe(
          map(res => {
            console.log(res.json());
