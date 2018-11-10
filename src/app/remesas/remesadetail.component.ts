@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Item } from './../interfaces/item.interface';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import {map} from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-remesadetail',
   templateUrl: './remesadetail.component.html',
   styles: []
 })
+
+@Injectable()
 export class RemesadetailComponent implements OnInit {
   remesas: any[] = [];
   id: number;
   items: any[]=[];
-  
+  item: Item;
+
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) { 
 
     this.route.params
@@ -65,5 +70,45 @@ export class RemesadetailComponent implements OnInit {
         map(res => res.json() )
       );
   }
+
+
+  //metodo que cambia el estado de un item
+  //http://localhost:8080/api/consignment/2/item/80/aprobado
+  cambiarEstado(item: Item, id1: number, id2: number , estado: string){
+    let itemURL= 'http://localhost:8080/api/consignment/'
+    let body = JSON.stringify(item);
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+    let url = `${itemURL}${id1}/item/${id2}/${estado}`;
+    console.log("url del boton aprobar item",url);
+    if(estado == "aprobado"){
+      if (window.confirm('¿Esta Seguro que desea Aprobar el item?')){
+        return this.http.put(url, body, { headers})
+          .subscribe(
+            data =>{
+              console.log(data)
+            }
+          )
+  
+       }
+
+    }
+    else{
+      if (window.confirm('¿Esta Seguro que desea Rechazar el item?')){
+        return this.http.put(url, body, { headers})
+          .subscribe(
+            data =>{
+              console.log(data)
+            }
+          )
+
+       }
+
+    }
+
+
+  }
+
 
 }

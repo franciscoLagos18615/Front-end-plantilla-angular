@@ -13,16 +13,16 @@ export class ItemsComponent implements OnInit {
 
   item: Item = {
     bill_number: 120,
-    budget_item: "",
-    detail: "",
+    budget_item: '',
+    detail: '',
     money: 10,
-    name_item: "",
-    provider: "",
-    purchase_order: "",
+    name_item: '',
+    provider: '',
+    purchase_order: '',
     resolution: 1,
-    rut: "",
-    status: "Por revisar",
-    type_gast: "cambio prueba nueva",
+    rut: '',
+    status: 'Por revisar',
+    type_gast: 'cambio prueba nueva',
 
   };
 

@@ -89,11 +89,16 @@
                       </thead>
                       <tbody>
                         <tr *ngFor=" let k of items | keys; let i = index">
-                          <th><button type="button" class="btn btn-info btn-sm">Validar Item</button> 
+                          <th>
+                            <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'aprobado' )"
+                            type="button" class="btn btn-info btn-sm">Validar Item
+                          </button> 
                             <button [routerLink]="['/remesa',remesas.id_consignment, 'item',items[k].item_id]"
                             type="button" class="btn btn-success btn-sm">Editar item
                             </button> 
-                            <button type="button" class="btn btn-danger btn-sm">Rechazar item</button>
+                            <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'rechazado' )"
+                            type="button" class="btn btn-danger btn-sm">Rechazar item
+                          </button>
                           </th>
                           <td>{{items[k].status}}</td>
                           <td>{{items[k].item_id}}</td>

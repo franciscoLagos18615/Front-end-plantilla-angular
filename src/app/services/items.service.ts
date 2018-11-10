@@ -59,7 +59,7 @@ export class ItemsService {
   }
 
   //metodo que obtiene un item
- //consignment/{consignmentId}/item/{itemId}
+ //consignment/{consignmentId}/item/{itemId}/
   getItem(id_consignment$: number, item_id$: number){
     let url = `${this.itemURL}${id_consignment$}/item/${item_id$}`;
     return this.http.get(url)
