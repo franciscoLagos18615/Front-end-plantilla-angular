@@ -84,20 +84,26 @@
                           <th ><small><strong>Detalle</strong></small></th>
                           <th ><small><strong>Monto</strong></small></th>
                           <th ><small><strong>Item Presupuestario</strong></small></th>
-                          <th ><small><strong>Nombre Item</strong></small></th>
+                          <th ><small><strong>Nombre del Item</strong></small></th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor=" let k of items | keys; let i = index">
                           <th>
                             <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'aprobado' )"
-                            type="button" class="btn btn-info btn-sm">Validar Item
+                            type="button" class="btn btn-info btn-sm">
+                            <i class="fas fa-check-circle"></i>
+                            Validar Item
                           </button> 
                             <button [routerLink]="['/remesa',remesas.id_consignment, 'item',items[k].item_id]"
-                            type="button" class="btn btn-success btn-sm">Editar item
+                            type="button" class="btn btn-success btn-sm">
+                            <i class="fas fa-edit"></i>
+                            Editar item
                             </button> 
                             <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'rechazado' )"
-                            type="button" class="btn btn-danger btn-sm">Rechazar item
+                            type="button" class="btn btn-danger btn-sm">
+                            <i class="fas fa-times-circle"></i>
+                            Rechazar item
                           </button>
                           </th>
                           <td>{{items[k].status}}</td>

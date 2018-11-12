@@ -12,17 +12,17 @@ import { Location } from '@angular/common';
 export class ItemsComponent implements OnInit {
 
   item: Item = {
-    bill_number: 120,
+    bill_number: null,
     budget_item: '',
     detail: '',
-    money: 10,
+    money: null,
     name_item: '',
     provider: '',
     purchase_order: '',
-    resolution: 1,
+    resolution: null,
     rut: '',
     status: 'Por revisar',
-    type_gast: 'cambio prueba nueva',
+    type_gast: '',
 
   };
 

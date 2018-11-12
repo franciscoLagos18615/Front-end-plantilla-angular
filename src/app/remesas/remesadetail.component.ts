@@ -46,9 +46,17 @@ export class RemesadetailComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    }
+//metodo que refresca la pagina despues de actualizar el estado del item(aprobado o rechazado)
+
+  refresh() {
+    setTimeout(() => {
+      window.location.reload();
+    }, ); // Activate after 5 minutes.
   }
 
-
+  //metodo para obtener una remesa 
   getRemesa(id_consignment$: number){
     let remesaURL = 'http://localhost:8080/api/consignment/'
     let url = `${remesaURL}${id_consignment$}`;
@@ -74,7 +82,7 @@ export class RemesadetailComponent implements OnInit {
 
   //metodo que cambia el estado de un item
   //http://localhost:8080/api/consignment/2/item/80/aprobado
-  cambiarEstado(item: Item, id1: number, id2: number , estado: string){
+  cambiarEstado(item: Item, id1: number, id2: number , estado: string) {
     let itemURL= 'http://localhost:8080/api/consignment/'
     let body = JSON.stringify(item);
     let headers = new Headers({
@@ -88,6 +96,7 @@ export class RemesadetailComponent implements OnInit {
           .subscribe(
             data =>{
               console.log(data)
+              this.refresh();
             }
           )
   
@@ -100,6 +109,7 @@ export class RemesadetailComponent implements OnInit {
           .subscribe(
             data =>{
               console.log(data)
+              this.refresh();
             }
           )
 
@@ -109,6 +119,7 @@ export class RemesadetailComponent implements OnInit {
 
 
   }
+//fin del metodo
 
 
 }
