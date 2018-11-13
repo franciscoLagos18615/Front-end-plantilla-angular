@@ -19,6 +19,7 @@ import {RemesaComponent} from '../../remesas/remesa.component';
 import { RemesadetailComponent } from './../../remesas/remesadetail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './../../items/items.component';
+import { PresupuestoComponent } from '../../presupuestos/presupuesto.component';
 
 
 
@@ -54,6 +55,7 @@ import {
     RemesaComponent,
     RemesadetailComponent,
     ItemsComponent,
+    PresupuestoComponent,
     KeysPipe,
   ]
 })

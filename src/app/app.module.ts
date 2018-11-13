@@ -1,3 +1,4 @@
+import { PresupuestosService } from './services/presupuestos.service';
 import { ItemsService } from './services/items.service';
 import { RemesasService } from './services/remesas.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './remesas/remesas.component';
-import { TypographyComponent } from './typography/typography.component';
+import { TypographyComponent } from './presupuestos/presupuestos.component';
 import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
@@ -25,10 +26,13 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { RemesaComponent } from './remesas/remesa.component';
 import { RemesadetailComponent } from './remesas/remesadetail.component';
 import { ItemsComponent } from './items/items.component';
+import { PresupuestoComponent } from './presupuestos/presupuesto.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
 
 
 
@@ -52,7 +56,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
 
   ],
-  providers: [RemesasService, ItemsService],
+  providers: [RemesasService, ItemsService, PresupuestosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

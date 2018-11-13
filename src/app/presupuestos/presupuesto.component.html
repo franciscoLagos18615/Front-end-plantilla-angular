@@ -1,0 +1,132 @@
+
+
+
+<div class="main-content">
+    <h3 class="text-center">&nbsp; Presupuesto <small> numero...</small></h3>
+    
+    <button [routerLink]= "['/presupuestos']" 
+    class="btn btn-danger ">Regresar</button>
+  
+
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <!--h3 *ngIf="presupuesto.request!=='' " class="card-title">Editando presupuesto</h3>
+                        <h3 *ngIf="presupuesto.request=='' " class="card-title">Creando presupuesto</h3>-->
+                        <h3>Creando presupuesto</h3>
+                    </div>
+                    <div class="card-body">
+                        <form name="form" (ngSubmit)="forma.form.valid && guardar()" #forma="ngForm" novalidate>
+                            
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer01">Gobernacion:</label>
+                                      
+                                        <input 
+                                        matInput 
+                                        [(ngModel)]="presupuesto.governance"
+                                        name="governance"
+                                        class="form-control is-invalid"
+                                        #governance="ngModel" [ngClass]="{'is-invalid':forma.submitted && governance.invalid}"
+                                        id="validationServer01"
+                                        placeholder="Gobernacion de talagante"
+                                        type="text"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE LA GOBERNACION
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+    
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer02">Fecha:</label>
+                                      
+                                    
+                                        <input 
+                                        matInput 
+                                        [(ngModel)]="presupuesto.date"
+                                        name="date"
+                                        class="form-control is-invalid"
+                                        #date="ngModel" [ngClass]="{'is-invalid':forma.submitted && date.invalid}"
+                                        id="validationServer02"
+                                        placeholder="25/06/2018"
+                                        type="date"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE LA FECHA
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer03">Dinero Entregado:</label>
+                                      
+                                    
+                                        <input 
+                                        matInput 
+                                        [(ngModel)]="presupuesto.money_allocated"
+                                        name="money_allocated"
+                                        class="form-control is-invalid"
+                                        #money_allocated="ngModel" [ngClass]="{'is-invalid':forma.submitted && money_allocated.invalid}"
+                                        id="validationServer03"
+                                        placeholder="1325670"
+                                        type="number"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE EL DINERO ENTREGADO
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer04">Observacion:</label>
+                                      
+                                    
+                                        <input 
+                                        matInput 
+                                        [(ngModel)]="presupuesto.observation"
+                                        name="observation"
+                                        class="form-control is-invalid"
+                                        #observation="ngModel" [ngClass]="{'is-invalid':forma.submitted && observation.invalid}"
+                                        id="validationServer04"
+                                        placeholder="Dinero entregado como presupuesto"
+                                        type="text"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE UNA OBSERVACION
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                            
+                           
+                          
+                            <button 
+                            mat-raised-button type="Submit" class="btn btn-info pull-right"
+                            >Guardar Presupuesto</button >
+
+                            
+                            <div *ngIf="seCreo" class="alert alert-primary" role="alert">
+                                    Presupuesto creado correctamente
+                                  </div>
+                             <div *ngIf="seActualizo" class="alert alert-success" role="alert">
+                                     Presupuesto actualizado correctamente
+                              </div>
+                            
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
