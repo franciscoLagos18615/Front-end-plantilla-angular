@@ -9,7 +9,8 @@
                           
                           [routerLink]="['/presupuesto',0]"
                            mat-raised-button type="submit" class="btn btn-info pull-right">
-                           NUEVO PRESUPUESTO</button>
+                           <i class="fas fa-plus-circle"></i>
+                            NUEVO PRESUPUESTO</button>
                        </div>
                     </div>
                  
@@ -54,12 +55,12 @@
                                               &nbsp;
                                               &nbsp;
                                               &nbsp;
-                                           <button  
+                                           <!--button  
                                            
                                               type="button" class="btn btn-outline-info btn-sm" >
                                               <i class="fas fa-align-justify"></i>
                                               Revisar
-                                              </button>
+                                              </button-->
                                           <button  
                                           [routerLink]="['/presupuesto', presupuestos[k].budget_id]"
                                           type="button" class="btn btn-outline-success btn-sm" >
