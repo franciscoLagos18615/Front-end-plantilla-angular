@@ -13,125 +13,236 @@
                         <h3 class="card-title">Nuevo Item</h3>
                     </div>
                     <div class="card-body">
-                        <form (ngSubmit)="guardarItem()" #forma="ngForm">
+                        <form name="form" (ngSubmit)="forma.form.valid && guardarItem()" #forma="ngForm" novalidate>
                             
                             
                             <div class="row">
                                 <div class="col-md-12">
-                                  <mat-form-field class="example-full-width">
+                                    <label for="validationServer20">Tipo de Gasto:</label>
+                                  
                                 
                                     <input 
                                     matInput 
                                     [(ngModel)]="item.type_gast"
                                     name="type_gast"
-                                    class="form-control"
-                                    placeholder="Tipo de Gasto"
+                                    class="form-control is-invalid"
+                                    #type_gast="ngModel" [ngClass]="{'is-invalid':forma.submitted && type_gast.invalid}"
+                                    id="validationServer20"
+                                    placeholder="Operacional"
+                                    type="text"
                                     required>
-                                  </mat-form-field>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL TIPO DE GASTO CORRECTAMENTE
+                                      </div>
+                                  
                                 </div>
                             </div>
-                            <div class="row">
-                                    <div class="col-md-12">
-                                      <mat-form-field class="example-full-width">
-                                        <input 
-                                        matInput 
-                                        [(ngModel)]="item.resolution"
-                                        name="resolution"
-                                        class="form-control"
-                                        placeholder="Resolucion"
-                                        required>
-                                      </mat-form-field>
-                                    </div>
-                                </div>
-                             <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input 
-                                            matInput 
-                                            [(ngModel)]="item.purchase_order"
-                                            name="purchase_order"
-                                            class="form-control"
-                                            placeholder="Orden de compra"
-                                            required>
-                                          </mat-form-field>
-                                        </div>
-                                    </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-12">
-                                  <mat-form-field class="example-full-width">
-                                    <input  matInput  [(ngModel)]="item.bill_number"
-                                    class="form-control"
-                                    name="bill_number"
-                                    placeholder="NºFactura o boleta" type="number"
-                                     required>
-                                  </mat-form-field>
+                                    <label for="validationServer21">Resolucion:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.resolution"
+                                    name="resolution"
+                                    class="form-control is-invalid"
+                                    #resolution="ngModel" [ngClass]="{'is-invalid':forma.submitted && resolution.invalid}"
+                                    id="validationServer21"
+                                    placeholder="266"
+                                    type="number"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL TIPO DE RESOLUCION 
+                                      </div>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer22">Orden de Compra:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.purchase_order"
+                                    name="purchase_order"
+                                    class="form-control is-invalid"
+                                    #purchase_order="ngModel" [ngClass]="{'is-invalid':forma.submitted && purchase_order.invalid}"
+                                    id="validationServer22"
+                                    placeholder="2077-26-SE18"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE LA ORDEN DE COMPRA
+                                      </div>
+                                  
                                 </div>
                             </div>
                             <div class="row">
-                                    <div class="col-md-12">
-                                      <mat-form-field class="example-full-width">
-                                        <input  matInput  [(ngModel)]="item.rut"
-                                        name="rut"
-                                        placeholder="Rut(18615292-1)" type="text"
-                                         required>
-                                      </mat-form-field>
-                                    </div>
+                                <div class="col-md-12">
+                                    <label for="validationServer23">NºFactura o boleta:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.bill_number"
+                                    name="bill_number"
+                                    class="form-control is-invalid"
+                                    #bill_number="ngModel" [ngClass]="{'is-invalid':forma.submitted && bill_number.invalid}"
+                                    id="validationServer23"
+                                    placeholder="14254"
+                                    type="number"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL NºFACTURA O BOLETA CORRECTAMENTE
+                                      </div>
+                                  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input  matInput  [(ngModel)]="item.provider"
-                                            name="provider"
-                                            placeholder="Proveedor" type="text"
-                                             required>
-                                          </mat-form-field>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer24">Rut:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.rut"
+                                    name="rut"
+                                    class="form-control is-invalid"
+                                    #rut="ngModel" [ngClass]="{'is-invalid':forma.submitted && rut.invalid}"
+                                    id="validationServer24"
+                                    placeholder="77654897-3"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL RUT CORRECTAMENTE
+                                      </div>
+                                  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input  matInput  [(ngModel)]="item.detail"
-                                            name="detail"
-                                            placeholder="Detalle" type="text"
-                                             required>
-                                          </mat-form-field>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer25">Proveedor:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.provider"
+                                    name="provider"
+                                    class="form-control is-invalid"
+                                    #provider="ngModel" [ngClass]="{'is-invalid':forma.submitted && provider.invalid}"
+                                    id="validationServer25"
+                                    placeholder="Axesat chile s.a"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL PROVEEDOR 
+                                      </div>
+                                  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input  matInput  [(ngModel)]="item.money"
-                                            name="money"
-                                            placeholder="Monto(150000)" type="number"
-                                             required>
-                                          </mat-form-field>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer26">DETALLE:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.detail"
+                                    name="detail"
+                                    class="form-control is-invalid"
+                                    #detail="ngModel" [ngClass]="{'is-invalid':forma.submitted && detail.invalid}"
+                                    id="validationServer26"
+                                    placeholder="Servicio Telefonia-internet junio 2018"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL DETALLE
+                                      </div>
+                                  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input  matInput  [(ngModel)]="item.budget_item"
-                                            name="budget_item"
-                                            placeholder="Item Presupuestario" type="text"
-                                             required>
-                                          </mat-form-field>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer27">Monto:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.money"
+                                    name="money"
+                                    class="form-control is-invalid"
+                                    #money="ngModel" [ngClass]="{'is-invalid':forma.submitted && money.invalid}"
+                                    id="validationServer27"
+                                    placeholder="150000"
+                                    type="number"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL MONTO
+                                      </div>
+                                  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-12">
-                                          <mat-form-field class="example-full-width">
-                                            <input  matInput  [(ngModel)]="item.name_item"
-                                            name="name_item"
-                                            placeholder="Nombre del item" type="text"
-                                             required>
-                                          </mat-form-field>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer28">Item Presupuestario:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.budget_item"
+                                    name="budget_item"
+                                    class="form-control is-invalid"
+                                    #budget_item="ngModel" [ngClass]="{'is-invalid':forma.submitted && budget_item.invalid}"
+                                    id="validationServer28"
+                                    placeholder="4.01.22.507"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL ITEM PRESUPUESTARIO
+                                      </div>
+                                  
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="validationServer29">NOMBRE DEL ITEM:</label>
+                                  
+                                
+                                    <input 
+                                    matInput 
+                                    [(ngModel)]="item.name_item"
+                                    name="name_item"
+                                    class="form-control is-invalid"
+                                    #name_item="ngModel" [ngClass]="{'is-invalid':forma.submitted && name_item.invalid}"
+                                    id="validationServer29"
+                                    placeholder="Acceso a internet"
+                                    type="text"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        INGRESE EL NOMBRE DEL ITEM
+                                      </div>
+                                  
+                                </div>
+                            </div>
+
+                            <!--
+                            
+                            
+                            
+                            
+                            
+                               
+                                
+                             
+                                -->
                            
                           
-                            <button [disabled]="!forma.valid"
-                            mat-raised-button type="Submit" class="btn btn-info pull-right"
+                            <button 
+                             type="Submit" class="btn btn-info pull-right"
                             >Guardar Item</button >
 
                             
@@ -152,3 +263,5 @@
         </div>
     </div>
   </div>
+
+  

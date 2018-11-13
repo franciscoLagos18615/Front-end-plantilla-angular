@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../services/items.service';
 import {Item} from '../interfaces/item.interface';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -33,8 +34,13 @@ export class ItemsComponent implements OnInit {
   seCreo:boolean = false;
   seActualizo:boolean = false;
 
+
+  model: any = {};
   constructor(private location: Location, private _itemsService: ItemsService, private router: Router, private route: ActivatedRoute) {
 
+
+
+    //obtencion de parametros de la url
     this.id1 = this.route.snapshot.paramMap.get("id1")
     this.id2 = this.route.snapshot.paramMap.get("id2");
     console.log(this.id1)
@@ -62,11 +68,11 @@ export class ItemsComponent implements OnInit {
   guardarItem(){
 
     if( this.id2 === '0' ){
-      console.log("este es el item",this.item)
-    
-      this._itemsService.nuevoItem(this.item,this.id1)
+      console.log('este es el item', this.item)
+
+      this._itemsService.nuevoItem(this.item, this.id1)
       .subscribe(data=>{
-      
+
 
       let ruta= `/remesa/${this.id1}/item/${this.id2}`
       console.log("ruta es", ruta)

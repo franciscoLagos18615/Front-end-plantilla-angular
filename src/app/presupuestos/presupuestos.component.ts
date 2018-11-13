@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-typography',
-  templateUrl: './typography.component.html',
-  styleUrls: ['./typography.component.css']
+  templateUrl: './presupuestos.component.html',
+  styles: []
 })
 export class TypographyComponent implements OnInit {
 

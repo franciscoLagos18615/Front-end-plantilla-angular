@@ -15,7 +15,7 @@ export class ItemsService {
 
   //metodo para un nuevo item de acuerdo a un id_consignment
 
-  nuevoItem(item: Item, id_consignment$: number) {
+  nuevoItem(item: Item, id_consignment$: string) {
     let body = JSON.stringify(item);
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export class ItemsService {
 
   //metodo para editar un item
   //consignment/{consignmentId}/item/{itemId}
-  actualizarItem(item: Item, id_consignment$: number, item_id$: number) {
+  actualizarItem(item: Item, id_consignment$: string, item_id$: string) {
     let body = JSON.stringify(item);
     let headers = new Headers({
       'Content-Type':'application/json'
@@ -60,7 +60,7 @@ export class ItemsService {
 
   //metodo que obtiene un item
  //consignment/{consignmentId}/item/{itemId}/
-  getItem(id_consignment$: number, item_id$: number){
+  getItem(id_consignment$: string, item_id$: string){
     let url = `${this.itemURL}${id_consignment$}/item/${item_id$}`;
     return this.http.get(url)
       .pipe(
