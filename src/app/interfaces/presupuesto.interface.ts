@@ -1,5 +1,5 @@
 export interface Presupuesto {
-    money_allocated: number;
+    budget: number;
     governance: string;
     date: any;
     observation: string;

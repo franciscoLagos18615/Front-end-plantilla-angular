@@ -65,15 +65,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="validationServer03">Dinero Entregado:</label>
+                                        <label for="validationServer03">Presupuesto:</label>
                                       
                                     
                                         <input 
                                         matInput 
-                                        [(ngModel)]="presupuesto.money_allocated"
-                                        name="money_allocated"
+                                        [(ngModel)]="presupuesto.budget"
+                                        name="budget"
                                         class="form-control is-invalid"
-                                        #money_allocated="ngModel" [ngClass]="{'is-invalid':forma.submitted && money_allocated.invalid}"
+                                        #budget="ngModel" [ngClass]="{'is-invalid':forma.submitted && budget.invalid}"
                                         id="validationServer03"
                                         placeholder="1325670"
                                         type="number"

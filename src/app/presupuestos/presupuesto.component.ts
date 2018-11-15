@@ -13,7 +13,7 @@ export class PresupuestoComponent implements OnInit {
   presupuesto: Presupuesto = {
     date: null,
     governance: '',
-    money_allocated: null,
+    budget: null,
     observation: '',
 
   };

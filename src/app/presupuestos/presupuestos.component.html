@@ -35,7 +35,7 @@
                                             Fecha  
                                         </th>
                                         <th>
-                                            Dinero Entregado  
+                                            Presupuesto
                                         </th>
                                         <th>
                                             Observaciones  
@@ -49,7 +49,7 @@
                                           <td>{{presupuestos[k].budget_id}}</td>
                                           <td>{{presupuestos[k].governance}}</td>
                                           <td>{{presupuestos[k].date}}</td>
-                                          <td>{{presupuestos[k].money_allocated}}</td>
+                                          <td>{{presupuestos[k].budget | currency}}</td>
                                           <td>{{presupuestos[k].observation}}</td>
                                           <td class="text-center">
                                               &nbsp;
