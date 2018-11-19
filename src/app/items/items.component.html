@@ -44,7 +44,7 @@
                                   
                                 
                                     <input 
-                                    matInput 
+                                    matInput
                                     [(ngModel)]="item.resolution"
                                     name="resolution"
                                     class="form-control is-invalid"
@@ -90,35 +90,42 @@
                                     matInput 
                                     [(ngModel)]="item.bill_number"
                                     name="bill_number"
-                                    class="form-control is-invalid"
-                                    #bill_number="ngModel" [ngClass]="{'is-invalid':forma.submitted && bill_number.invalid}"
+                                    class="form-control is-valid"
+                                    #bill_number="ngModel" [ngClass]="{'is-valid':forma.submitted && bill_number.valid}"
                                     id="validationServer23"
                                     placeholder="14254"
                                     type="number"
-                                    required>
-                                    <div class="invalid-feedback">
-                                        INGRESE EL NºFACTURA O BOLETA CORRECTAMENTE
-                                      </div>
+                                    >
+                                    
                                   
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
+                                    
                                     <label for="validationServer24">Rut:</label>
                                   
                                 
                                     <input 
-                                    matInput 
+                                    
+                                    matInput
+                                     
                                     [(ngModel)]="item.rut"
                                     name="rut"
+                                    
                                     class="form-control is-invalid"
+                                
                                     #rut="ngModel" [ngClass]="{'is-invalid':forma.submitted && rut.invalid}"
                                     id="validationServer24"
-                                    placeholder="77654897-3"
+                                    
+                                    placeholder="77391830-9"
                                     type="text"
-                                    required>
+                                    
+                                    required
+                                    validateRut>
                                     <div class="invalid-feedback">
-                                        INGRESE EL RUT CORRECTAMENTE
+                                        INGRESE UN RUT VALIDO 
                                       </div>
                                   
                                 </div>
@@ -263,5 +270,6 @@
         </div>
     </div>
   </div>
+
 
   

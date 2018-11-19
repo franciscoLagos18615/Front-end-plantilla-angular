@@ -20,6 +20,7 @@ import { RemesadetailComponent } from './../../remesas/remesadetail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './../../items/items.component';
 import { PresupuestoComponent } from '../../presupuestos/presupuesto.component';
+import { Ng2Rut } from 'ng2-rut';
 
 
 
@@ -36,6 +37,7 @@ import {
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    Ng2Rut,
     MatButtonModule,
     MatRippleModule,
     MatInputModule,

@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { Ng2Rut } from 'ng2-rut';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -42,6 +42,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    Ng2Rut,
     FormsModule,
     HttpModule,
     ComponentsModule,
