@@ -17,7 +17,7 @@ export class RemesadetailComponent implements OnInit {
   id: number;
   items: any[]=[];
   item: Item;
-  total: any[]=[];
+  total: number;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) { 
 

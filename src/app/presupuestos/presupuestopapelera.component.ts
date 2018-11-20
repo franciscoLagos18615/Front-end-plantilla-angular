@@ -1,30 +1,25 @@
-import { Router } from '@angular/router';
-import { PresupuestosService } from './../services/presupuestos.service';
-import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { Presupuesto } from '../interfaces/presupuesto.interface';
-
-
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { PresupuestosService } from '../services/presupuestos.service';
+import { Presupuesto } from 'app/interfaces/presupuesto.interface';
 
 @Component({
-  selector: 'app-typography',
-  templateUrl: './presupuestos.component.html',
+  selector: 'app-presupuestopapelera',
+  templateUrl: './presupuestopapelera.component.html',
   styles: []
 })
-
-
-export class TypographyComponent implements OnInit {
+export class PresupuestopapeleraComponent implements OnInit {
   presupuestos: any[] = [];
   presupuesto: Presupuesto;
 
-  constructor(private _presupuestosService: PresupuestosService, private router: Router, private http: Http) { 
-    this._presupuestosService.getPresupuestos()
-      .subscribe(data => {
-        console.log(data);
-        this.presupuestos = data;
+  constructor(private _presupuestosService: PresupuestosService, private router: Router , private http: Http) { 
+    this._presupuestosService.getPresupuestosInactivos()
+    .subscribe(data => {
+      console.log(data);
+      this.presupuestos = data;
 
-        });
-
+      });
   }
 
   ngOnInit() {
@@ -38,17 +33,16 @@ export class TypographyComponent implements OnInit {
       window.location.reload();
     }, ); // Activate after 5 minutes.
   }
-
-
+  //metodo que obtiene todos los presupuestos inactivos
   allPresupuestos(){
-    this._presupuestosService.getPresupuestos()
+    this._presupuestosService.getPresupuestosInactivos()
       .subscribe(data =>{
         this.presupuestos = data;
       });
   }
 
   //metodo para borrar una remesa
-  borraPresupuesto(key$: number){
+  borraPresupuesto(key$: number) {
 
     //this._remesasService.borrarRemesa(key$)
     let presupuestoURL = 'http://localhost:8080/api/budget/'
@@ -62,9 +56,8 @@ export class TypographyComponent implements OnInit {
         }
       )
      }
-  }
+  }//fin metodo borrar
 
-  //http://localhost:8080/api/budget/128/activo
   cambiarEstado(presupuesto: Presupuesto, id1: number, estado: string) {
     let budgetURL= 'http://localhost:8080/api/budget/'
     let body = JSON.stringify(presupuesto);
@@ -73,8 +66,8 @@ export class TypographyComponent implements OnInit {
     });
     let url = `${budgetURL}${id1}/${estado}`;
     console.log("url del boton inactivar budget",url);
-    if(estado == 'inactivo'){
-      if (window.confirm('¿Esta Seguro que desea activar el presupuesto?')){
+    if(estado == 'activo'){
+      if (window.confirm('¿Esta Seguro que desea enviar a la papelera el presupuesto?')){
         return this.http.put(url, body, { headers})
           .subscribe(
             data =>{

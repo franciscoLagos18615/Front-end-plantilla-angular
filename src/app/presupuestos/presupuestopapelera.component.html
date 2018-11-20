@@ -1,0 +1,86 @@
+<div class="main-content">
+          
+    <div class="container-fluid">
+        <div class="row text-center">
+                
+                  <div class="col-md-12 text-center">
+                      <button 
+                      
+                      [routerLink]="['/presupuestos']"
+                       mat-raised-button type="submit" class="btn btn-info pull-right">
+                       <i class="fas fa-plus-circle"></i>
+                        IR A LISTA DE PRESUPUESTOS ACTIVOS</button>
+                   </div>
+                </div>
+             
+         <br> 
+          
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title text-center">LISTADO DE PRESUPUESTOS INACTIVOS</h4>
+                        <p > Listado de presupuestos inactivos</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class=" text-primary">
+                                    <th>ID</th>
+                                    <th>
+                                        Gobernacion
+                                    </th>
+                                    <th>
+                                        Fecha  
+                                    </th>
+                                    <th>
+                                        Presupuesto
+                                    </th>
+                                    <th>
+                                        Observaciones  
+                                    </th>
+                                    <th class="text-center">
+                                        Opciones </th>
+                                   
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor=" let k of presupuestos | keys; let i = index">
+                                      <td>{{presupuestos[k].budget_id}}</td>
+                                      <td>{{presupuestos[k].governance}}</td>
+                                      <td>{{presupuestos[k].date}}</td>
+                                      <td>{{presupuestos[k].budget | currency}}</td>
+                                      <td>{{presupuestos[k].observation}}</td>
+                                      <td class="text-center">
+                                          &nbsp;
+                                          &nbsp;
+                                          &nbsp;
+                                    
+                                      <button  
+                                      (click)="cambiarEstado(presupuestos[k],presupuestos[k].budget_id, 'activo')" 
+                                      type="button" class="btn btn-outline-success btn-sm" >
+                                      <i class="fas fa-check"></i>
+                                      Activar Presupuesto
+                                      </button>
+                                      <button
+                                      
+                                      (click)="borraPresupuesto(presupuestos[k].budget_id)" 
+                                      type="button" class="btn btn-outline-danger btn-sm">
+                                      <i class="fas fa-trash-alt"></i>
+                                          Eliminar
+                                      </button>
+  
+                                      </td>
+                                      
+  
+                                    </tr>
+                                                     
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

@@ -15,6 +15,7 @@ export class PresupuestoComponent implements OnInit {
     governance: '',
     budget: null,
     observation: '',
+    status: 'activo',
 
   };
 

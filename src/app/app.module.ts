@@ -27,10 +27,13 @@ import { RemesaComponent } from './remesas/remesa.component';
 import { RemesadetailComponent } from './remesas/remesadetail.component';
 import { ItemsComponent } from './items/items.component';
 import { PresupuestoComponent } from './presupuestos/presupuesto.component';
+import { PresupuestopapeleraComponent } from './presupuestos/presupuestopapelera.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
 
 
 
@@ -55,6 +58,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
+
 
   ],
   providers: [RemesasService, ItemsService, PresupuestosService],

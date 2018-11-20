@@ -4,7 +4,15 @@
           
         <div class="container-fluid">
             <div class="row text-center">
-                      <div class="col-md-12 text-center">
+                    <div class="col-md-6 text-left" >
+                            <button 
+                            
+                            [routerLink]="['/presupuestoPapelera']"
+                             mat-raised-button type="submit" class="btn btn-outline-warning pull-left">
+                             <i class="fas fa-recycle"></i>
+                              IR A PAPELERA DE PRESUPUESTOS</button>
+                         </div>
+                      <div class="col-md-6 text-center">
                           <button 
                           
                           [routerLink]="['/presupuesto',0]"
@@ -67,11 +75,12 @@
                                           <i class="fas fa-edit"></i>
                                           Editar
                                           </button>
-                                          <button 
-                                          (click)="borraPresupuesto(presupuestos[k].budget_id)"
+                                          <button
+                                          (click)="cambiarEstado(presupuestos[k],presupuestos[k].budget_id, 'inactivo')" 
+                                          
                                           type="button" class="btn btn-outline-danger btn-sm">
                                           <i class="fas fa-trash-alt"></i>
-                                              Eliminar
+                                              Enviar a la Papelera
                                           </button>
       
                                           </td>

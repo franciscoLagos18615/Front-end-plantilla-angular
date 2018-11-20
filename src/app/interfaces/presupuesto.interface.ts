@@ -3,5 +3,6 @@ export interface Presupuesto {
     governance: string;
     date: any;
     observation: string;
+    status: string;
     id_budget$?: number;
 }

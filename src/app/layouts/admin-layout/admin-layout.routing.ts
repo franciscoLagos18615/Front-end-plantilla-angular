@@ -14,6 +14,7 @@ import { RemesaComponent } from '../../remesas/remesa.component';
 import { RemesadetailComponent } from '../../remesas/remesadetail.component';
 import { ItemsComponent } from './../../items/items.component';
 import { PresupuestoComponent } from './../../presupuestos/presupuesto.component';
+import { PresupuestopapeleraComponent } from 'app/presupuestos/presupuestopapelera.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -67,6 +68,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'remesa/:id1/item/:id2',     component: ItemsComponent },
     { path: 'presupuestos',     component: TypographyComponent },
     { path: 'presupuesto/:id',     component: PresupuestoComponent },
+    { path: 'presupuestoPapelera',     component: PresupuestopapeleraComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },

@@ -9,6 +9,8 @@ export class PresupuestosService {
   presupuestosURL = 'http://localhost:8080/api/budget/new';
   presupuestoURL = 'http://localhost:8080/api/budget/';
   presupuestosAll = 'http://localhost:8080/api/budget/all';
+  presupuestosAllActive = 'http://localhost:8080/api/budget/allActive';
+  presupuestosAllInactive = 'http://localhost:8080/api/budget/allInactive';
 
   seCreo: boolean = false;
   constructor(private http: Http) { }
@@ -55,9 +57,17 @@ export class PresupuestosService {
   }
   //metodo que obtiene todo los presupuestos
   getPresupuestos(){
-    return this.http.get(this.presupuestosAll)
+    return this.http.get(this.presupuestosAllActive)
       .pipe(
         map(res=>res.json() )
+      );
+  }
+
+  //metodo que obtiene los presupuestos inactivos
+  getPresupuestosInactivos() {
+    return this.http.get(this.presupuestosAllInactive)
+      .pipe(
+        map(res => res.json())
       );
   }
 

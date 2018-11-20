@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './../../items/items.component';
 import { PresupuestoComponent } from '../../presupuestos/presupuesto.component';
 import { Ng2Rut } from 'ng2-rut';
+import { PresupuestopapeleraComponent } from '../../presupuestos/presupuestopapelera.component';
 
 
 
@@ -58,6 +59,7 @@ import {
     RemesadetailComponent,
     ItemsComponent,
     PresupuestoComponent,
+    PresupuestopapeleraComponent,
     KeysPipe,
   ]
 })
