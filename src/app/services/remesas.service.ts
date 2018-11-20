@@ -77,4 +77,22 @@ export class RemesasService {
     )
   }
 
+  //method that return total sum money consignment in relationship items
+  getSumaConsignment(id_consignment$: number){
+    //http://localhost:8080/api/consignment/127/total
+    let url = `${this.remesaURL}${id_consignment$}/total`;
+     return this.http.get(url)
+       .pipe(
+         map(
+           res => {
+             console.log("la suma es: ",res);
+
+
+          }
+
+         )
+       );
+
+  }
+
 }

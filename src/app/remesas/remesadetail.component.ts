@@ -17,6 +17,7 @@ export class RemesadetailComponent implements OnInit {
   id: number;
   items: any[]=[];
   item: Item;
+  total: any[]=[];
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) { 
 
@@ -35,10 +36,17 @@ export class RemesadetailComponent implements OnInit {
               this.remesas = data;
               console.log("esta es la remesa",data)
             })
+
+            this.getSumaConsignment(this.id)
+            .subscribe(total => {
+              this.total = total;
+              console.log("este es el total", total)
+            });
+
             this.getItemForRemesa(this.id)
             .subscribe(items => {
               this.items = items;
-              console.log("esto son los items",items)
+              console.log("esto son los items", items)
             });
       });
 
@@ -120,6 +128,22 @@ export class RemesadetailComponent implements OnInit {
 
   }
 //fin del metodo
+
+//method that return total sum money consignment in relationship items
+getSumaConsignment(id_consignment$: number){
+  //http://localhost:8080/api/consignment/127/total
+  let remesaURL = 'http://localhost:8080/api/consignment/'
+  let url = `${remesaURL}${id_consignment$}/total`;
+   return this.http.get(url)
+     .pipe(
+       map(
+
+          res => res.json()
+
+        )
+      );
+
+  }
 
 
 }
