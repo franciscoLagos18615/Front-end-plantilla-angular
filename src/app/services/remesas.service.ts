@@ -13,6 +13,10 @@ export class RemesasService {
   remesasURL = 'http://localhost:8080/api/consignment/new';
   remesaURL = 'http://localhost:8080/api/consignment/';
   remesasAll = 'http://localhost:8080/api/consignment/all';
+  remesasAllActive = 'http://localhost:8080/api/consignment/allActive';
+  remesasAllInactive = 'http://localhost:8080/api/consignment/allInactive';
+
+
 
   seCreo: boolean=false;
   constructor( private http: Http ) { }
@@ -58,13 +62,22 @@ export class RemesasService {
        );
    }
 
-
+//REMESAS ACTIVAS
    getRemesas(){
-    return this.http.get(this.remesasAll)
+    return this.http.get(this.remesasAllActive)
       .pipe(
         map(res=>res.json() )
       );
   }
+//METODO QUE EXTRAE LAS REMESAS INACTIVAS
+
+getPresupuestosInactivos() {
+  return this.http.get(this.remesasAllInactive)
+    .pipe(
+      map(res => res.json())
+    );
+}
+
 
   borrarRemesa(id_consignment$:number){
 

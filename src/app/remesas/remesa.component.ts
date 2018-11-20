@@ -16,9 +16,10 @@ import {NgForm} from '@angular/forms';
 export class RemesaComponent implements OnInit {
 
   remesa: Remesa = {
-    request:"",
-    status:"Por Revisar",
-    governance:"",
+    request: '',
+    status: 'Por Revisar',
+    governance: '',
+    status_bin: 'activo',
 
   };
 

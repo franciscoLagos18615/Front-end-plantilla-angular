@@ -65,9 +65,9 @@ export class PresupuestopapeleraComponent implements OnInit {
       'Content-Type':'application/json'
     });
     let url = `${budgetURL}${id1}/${estado}`;
-    console.log("url del boton inactivar budget",url);
+    console.log("url del boton activar budget",url);
     if(estado == 'activo'){
-      if (window.confirm('¿Esta Seguro que desea enviar a la papelera el presupuesto?')){
+      if (window.confirm('¿Esta Seguro que desea activar el presupuesto?')){
         return this.http.put(url, body, { headers})
           .subscribe(
             data =>{

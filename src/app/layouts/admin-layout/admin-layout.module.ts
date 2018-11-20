@@ -22,6 +22,7 @@ import { ItemsComponent } from './../../items/items.component';
 import { PresupuestoComponent } from '../../presupuestos/presupuesto.component';
 import { Ng2Rut } from 'ng2-rut';
 import { PresupuestopapeleraComponent } from '../../presupuestos/presupuestopapelera.component';
+import { RemesapapeleraComponent } from '../../remesas/remesapapelera.component';
 
 
 
@@ -60,6 +61,7 @@ import {
     ItemsComponent,
     PresupuestoComponent,
     PresupuestopapeleraComponent,
+    RemesapapeleraComponent,
     KeysPipe,
   ]
 })

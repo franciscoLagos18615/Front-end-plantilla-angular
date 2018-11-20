@@ -1,8 +1,10 @@
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { RemesasService } from '../services/remesas.service';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Remesa } from 'app/interfaces/remesa.interface';
+
 
 @Component({
   selector: 'app-table-list',
@@ -24,6 +26,14 @@ export class TableListComponent implements OnInit {
     this.allRemesas()
   }
 
+  //metodo que refresca la pagina 
+  refresh() {
+    setTimeout(() => {
+      window.location.reload();
+    }, ); // Activate after 5 minutes.
+  }
+
+//metodo que extrae todas las remesas
   allRemesas(){
     this._remesasService.getRemesas()
       .subscribe(data =>{
@@ -48,7 +58,33 @@ export class TableListComponent implements OnInit {
      }
   }
 
-  //metodo para obtener una remesa
+  //metodo para cambiar estado de la remesa
+  
+  cambiarEstado(remesa: Remesa, id1: number, estado: string) {
+    let consignmentURL= 'http://localhost:8080/api/consignment/'
+    let body = JSON.stringify(remesa);
+    let headers = new Headers({
+      'Content-Type':'application/json'
+    });
+    let url = `${consignmentURL}${id1}/${estado}`;
+    console.log("url del boton inactivar consignment",url);
+    if(estado == 'inactivo'){
+      if (window.confirm('¿Esta Seguro que desea enviar a la papelera la remesa?')){
+        return this.http.put(url, body, { headers})
+          .subscribe(
+            data =>{
+              console.log(data)
+              this.refresh();
+            }
+          )
+
+       }
+
+    }
+
+
+
+  }
 
 
 }

@@ -74,7 +74,7 @@ export class TypographyComponent implements OnInit {
     let url = `${budgetURL}${id1}/${estado}`;
     console.log("url del boton inactivar budget",url);
     if(estado == 'inactivo'){
-      if (window.confirm('¿Esta Seguro que desea activar el presupuesto?')){
+      if (window.confirm('¿Esta Seguro que desea enviar a la papelera el presupuesto?')){
         return this.http.put(url, body, { headers})
           .subscribe(
             data =>{

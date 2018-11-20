@@ -1,0 +1,76 @@
+<div class="main-content">
+          
+    <div class="container-fluid">
+        <div class="row text-center">
+                
+                  <div class="col-md-12 text-center">
+                      <button 
+                      
+                      [routerLink]="['/remesas']"
+                       mat-raised-button type="submit" class="btn btn-info pull-right">
+                       <i class="fas fa-plus-circle"></i>
+                        IR A LISTA DE REMESAS ACTIVOS</button>
+                   </div>
+                </div>
+             
+         <br> 
+          
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title text-center">LISTADO DE REMESAS INACTIVOS</h4>
+                        <p > Listado de remesas inactivos</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class=" text-primary">
+                                    <th>ID</th>
+                                    <th>
+                                        Solicitud</th>
+                                    <th>
+                                        Estado  </th>
+                                    <th class="text-center">
+                                        Opciones </th>
+                                   
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor=" let k of remesas | keys; let i = index">
+                                      <td>{{remesas[k].id_consignment}}</td>
+                                      <td>{{remesas[k].request}}</td>
+                                      <td>{{remesas[k].status}}</td>
+                                      <td class="text-center">
+                                          &nbsp;
+                                          &nbsp;
+                                          &nbsp;
+                                      
+                                      <button  
+                                      
+                                      (click)="cambiarEstado(remesas[k],remesas[k].id_consignment,'activo')"
+                                      type="button" class="btn btn-outline-success btn-sm" >
+                                      <i class="fas fa-edit"></i>
+                                        Activar Remesa
+                                      </button>
+                                      <button 
+                                      (click)="borraRemesa(remesas[k].id_consignment)"
+                                      type="button" class="btn btn-outline-danger btn-sm">
+                                      <i class="fas fa-trash-alt"></i>
+                                          Eliminar
+                                      </button>
+  
+                                      </td>
+                                      
+  
+                                    </tr>
+                                                     
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

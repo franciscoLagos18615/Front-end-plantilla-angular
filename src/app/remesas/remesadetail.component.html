@@ -1,6 +1,19 @@
 <div class="main-content">
-    <button [routerLink]= "['/remesas']" 
-    class="btn btn-outline-success "> <i class="fas fa-arrow-circle-left"> Listado Remesas</i></button>
+  
+  <div class="row text-center">
+    <div class="col-md-6 text-left">
+      <button [routerLink]= "['/remesas']" 
+      class="btn btn-outline-success pull-left "> <i class="fas fa-arrow-circle-left"> Listado Remesas</i></button>
+    </div>
+    <div class="col-md-6 text-center">
+        <button 
+        
+        mat-raised-button type="submit" class="btn btn-warning pull-right"><i class="fas fa-file-excel"></i> EXPORTAR REMESA</button>
+
+    </div>
+      
+    
+  </div>
 
     <div class="container-fluid">
 
@@ -54,6 +67,7 @@
                 [routerLink]="['/remesa', remesas.id_consignment,'item', 0]"
                  mat-raised-button type="submit" class="btn btn-info pull-right"><i class="fas fa-plus-circle" style="size:5x;"></i> NUEVO ITEM</button>
              </div>
+             
              
           </div>
        <br> 
