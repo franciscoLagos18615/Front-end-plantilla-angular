@@ -1,3 +1,5 @@
+import { AuthGuardService } from './../../guard/auth-guard.service';
+
 
 
 
@@ -70,7 +72,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'register',      component: RegisterComponent },
     { path: 'login',      component: LoginComponent },
     { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'remesas',     component: TableListComponent },
+    { path: 'remesas',     component: TableListComponent, canActivate: [AuthGuardService] },
     { path: 'remesa/:id',     component: RemesaComponent },
     { path: 'remesaDetail/:id',     component: RemesadetailComponent },
     { path: 'remesa/:id1/item/:id2',     component: ItemsComponent },

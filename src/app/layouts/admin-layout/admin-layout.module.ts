@@ -25,7 +25,7 @@ import { PresupuestopapeleraComponent } from '../../presupuestos/presupuestopape
 import { RemesapapeleraComponent } from '../../remesas/remesapapelera.component';
 import { RegisterComponent } from '../../register/register.component';
 import { LoginComponent } from '../../login/login.component';
-
+import { AuthGuardService } from '../../guard/auth-guard.service';
 
 
 
