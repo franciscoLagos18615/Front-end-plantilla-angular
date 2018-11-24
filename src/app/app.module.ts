@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { PresupuestosService } from './services/presupuestos.service';
 import { ItemsService } from './services/items.service';
 import { RemesasService } from './services/remesas.service';
@@ -29,10 +30,15 @@ import { ItemsComponent } from './items/items.component';
 import { PresupuestoComponent } from './presupuestos/presupuesto.component';
 import { PresupuestopapeleraComponent } from './presupuestos/presupuestopapelera.component';
 import { RemesapapeleraComponent } from './remesas/remesapapelera.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
+
 
 
 
@@ -62,7 +68,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
 
   ],
-  providers: [RemesasService, ItemsService, PresupuestosService],
+  providers: [RemesasService, ItemsService, PresupuestosService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

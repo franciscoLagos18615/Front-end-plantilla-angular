@@ -1,6 +1,7 @@
 
 
 
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -17,6 +18,9 @@ import { ItemsComponent } from './../../items/items.component';
 import { PresupuestoComponent } from './../../presupuestos/presupuesto.component';
 import { PresupuestopapeleraComponent } from 'app/presupuestos/presupuestopapelera.component';
 import { RemesapapeleraComponent } from './../../remesas/remesapapelera.component';
+import { RegisterComponent } from '../../register/register.component';
+import { LoginComponent } from '../../login/login.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -63,6 +67,8 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'home',      component: DashboardComponent },
+    { path: 'register',      component: RegisterComponent },
+    { path: 'login',      component: LoginComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'remesas',     component: TableListComponent },
     { path: 'remesa/:id',     component: RemesaComponent },
