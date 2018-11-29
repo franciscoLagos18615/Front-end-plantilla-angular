@@ -1,3 +1,4 @@
+import { ExportexcelService } from './services/exportexcel.service';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { UserService } from './services/user.service';
 import { PresupuestosService } from './services/presupuestos.service';
@@ -9,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Ng2Rut } from 'ng2-rut';
+
+
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -69,7 +73,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
 
   ],
-  providers: [RemesasService, ItemsService, PresupuestosService, UserService , AuthGuardService],
+  providers: [RemesasService, ItemsService, PresupuestosService, UserService , AuthGuardService, ExportexcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

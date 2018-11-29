@@ -1,3 +1,4 @@
+import { ExportexcelService } from './../services/exportexcel.service';
 import { Item } from './../interfaces/item.interface';
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
@@ -14,12 +15,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Injectable()
 export class RemesadetailComponent implements OnInit {
   remesas: any[] = [];
+  urlExportable: string;
   id: number;
   items: any[]=[];
   item: Item;
   total: number;
+  exportable: any[] = [];
+  datoExcel: any = [{
+    eid: 'e101',
+    ename: 'ravi',
+    esal: 1000
+    },{
+    eid: 'e102',
+    ename: 'ram',
+    esal: 2000
+    },{
+    eid: 'e103',
+    ename: 'rajesh',
+    esal: 3000
+    }];
 
-  constructor(private http: Http, private route: ActivatedRoute, private router: Router) { 
+    nombreArchivo: string ;
+    exportando: any;
+
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private _exportexcel: ExportexcelService) { 
 
     this.route.params
       .subscribe(
@@ -27,6 +46,8 @@ export class RemesadetailComponent implements OnInit {
         this.id = parametros['id']
 
         let ide : number = this.id;
+        this.urlExportable = this.getExport(this.id);
+        console.log('keo enfemro:', this.urlExportable);
         console.log("el id es este numero" , ide);
         console.log(this.id)
        console.log("es distinto de 0")
@@ -35,14 +56,25 @@ export class RemesadetailComponent implements OnInit {
             .subscribe(data => {
               this.remesas = data;
               console.log("esta es la remesa",data)
-            })
+            });
 
             this.getSumaConsignment(this.id)
             .subscribe(total => {
               this.total = total;
               console.log("este es el total", total)
             });
-
+            this.getNombreExcel(this.id)
+            .subscribe(nombreArchivo => {
+              this.nombreArchivo = nombreArchivo;
+              console.log("el nombre del archivo es ", nombreArchivo)
+            });
+            //this del formato json del item
+            this.getFormatoJsonItems(this.id)
+            .subscribe(exportable => {
+              this.exportable = exportable;
+              console.log("json exportable es ", exportable)
+            });
+            
             this.getItemForRemesa(this.id)
             .subscribe(items => {
               this.items = items;
@@ -107,7 +139,7 @@ export class RemesadetailComponent implements OnInit {
               this.refresh();
             }
           )
-  
+
        }
 
     }
@@ -143,6 +175,50 @@ getSumaConsignment(id_consignment$: number){
         )
       );
 
+  }
+
+  //metodo para obtener el nombre del archivo exportable excel
+  getNombreExcel(id_consignment$: number){
+    let remesaURL = 'http://localhost:8080/api/consignment/'
+    let url = `${remesaURL}${id_consignment$}/nombre`;
+   return this.http.get(url)
+     .pipe(
+       map(
+
+          res => res.text()
+
+        )
+      );
+
+  }
+
+  //metodo que retorna el archivo exportable
+  getExport(id_consignment$: number){
+    let remesaURL = 'http://localhost:8080/api/consignment/'
+    let url = `${remesaURL}${id_consignment$}/export`;
+    console.log('url del export es :', url);
+     return url;
+
+
+  }
+  //metodo que extrae el json con el formato de los items de acuerdo a la UPF
+  getFormatoJsonItems(id_consignment:number){
+    let urlFormatoJson = 'http://localhost:8080/api/consignment/';
+    let url = `${urlFormatoJson}${id_consignment}/items/excel`;
+    return this.http.get(url)
+     .pipe(
+       map(
+
+          res => res.json()
+
+        )
+      );
+  }
+  
+
+  //metodo para generar el excel
+  exportarExcel(dato: any, nombre: string) {
+    this._exportexcel.generateExcel(this.exportable, nombre);
   }
 
 
