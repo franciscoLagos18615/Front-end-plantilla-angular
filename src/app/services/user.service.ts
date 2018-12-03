@@ -1,49 +1,42 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {Http, Headers} from '@angular/http';
+import { Remesa } from '../interfaces/remesa.interface';
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../interfaces/user.interface';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) { }
+  private userUrl = 'http://localhost:8080/api/test/user';
+  private pmUrl = 'http://localhost:8080/api/test/pm';
+  private adminUrl = 'http://localhost:8080/api/test/admin';
+  private urlRemesa = 'http://localhost:8080/api/remesa/new';
 
-  //metodo para registrarse
-  register(user: User){
-    console.log('user es:', user)
-    let urlRegister = 'http://localhost:8080/api/user/register'
-    let body = JSON.stringify(user);
+  constructor(private http: HttpClient, private http2: Http) { }
+
+  getUserBoard(): Observable<string> {
+    return this.http.get(this.userUrl, { responseType: 'text' });
+  }
+
+  getPMBoard(): Observable<string> {
+    return this.http.get(this.pmUrl, { responseType: 'text' });
+  }
+
+  getAdminBoard(): Observable<string> {
+    return this.http.get(this.adminUrl, { responseType: 'text' });
+  }
+  nuevaRemesa(remesa: Remesa) {
+    let body = JSON.stringify(remesa);
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-   return this.http.post(urlRegister, body, { headers})
+   return this.http2.post(this.urlRemesa, body, { headers})
        .pipe(
          map(res => {
-           console.log(res.text());
-           return res.text(); }
+           console.log(res.json());
+           return res.json(); }
            ));
-
-  }
-
-  //metodo para logearse
-  login(user){
-    let headers = new Headers();
-    headers.append('Content-type','application/json');
-    return this.http.get('http://localhost:8080/api/user/login/'+ user.email +'/'+ user.password,{headers:headers})
-      .pipe(
-        map(res => res.text() ? res.json() : res)
-      );
-
-  }
-
-  //metodo para extraer el usuario de la sesion
-  isLogedIn(){
-    if (sessionStorage.getItem('user')){
-      return true;
-    } else{
-      return false;
-    }
-  }
+   }
 
 }

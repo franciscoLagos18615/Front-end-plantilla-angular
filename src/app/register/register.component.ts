@@ -1,8 +1,6 @@
-import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from '../interfaces/user.interface';
-
+import { AuthService } from '../auth/auth.service';
+import { SignUpInfo } from '../auth/signup-info';
 
 @Component({
   selector: 'app-register',
@@ -11,28 +9,39 @@ import { User } from '../interfaces/user.interface';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User = {
-    username: null,
-    email: null,
-    password: null,
-  };
-  constructor(private _userService: UserService, private _route: Router) { }
+  form: any = {};
+  role = ['admin'];
+  signupInfo: SignUpInfo;
+  isSignedUp = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  ngOnInit() {
-  }
+  constructor(private authService: AuthService) { }
 
-  onRegisterSubmit(){
+  ngOnInit() { }
 
-    this._userService.register(this.user).subscribe(data => {
-      console.log('aqui');
-      if( data == 'ok'){
-        console.log("el dato es ",data);
-        this._route.navigate(['/login']);
-      } else {
-        console.log('aqui');
-        alert("Email not available")
+  onSubmit() {
+    console.log(this.form);
+
+    this.signupInfo = new SignUpInfo(
+      this.form.name,
+      this.form.username,
+      this.form.email,
+      this.form.password,
+      this.role);
+
+    this.authService.signUp(this.signupInfo).subscribe(
+      data => {
+        console.log(data);
+        this.isSignedUp = true;
+        this.isSignUpFailed = false;
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isSignUpFailed = true;
       }
-    })
+    );
   }
 
 }

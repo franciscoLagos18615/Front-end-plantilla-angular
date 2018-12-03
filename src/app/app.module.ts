@@ -1,5 +1,5 @@
+import { httpInterceptorProviders } from './auth/auth-interceptor.service';
 import { ExportexcelService } from './services/exportexcel.service';
-import { AuthGuardService } from './guard/auth-guard.service';
 import { UserService } from './services/user.service';
 import { PresupuestosService } from './services/presupuestos.service';
 import { ItemsService } from './services/items.service';
@@ -10,11 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Ng2Rut } from 'ng2-rut';
+import { AuthService } from './auth/auth.service';
+import { TokenStorageService } from './auth/token-storage.service';
 
 
 
 
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -36,11 +39,13 @@ import { PresupuestoComponent } from './presupuestos/presupuesto.component';
 import { PresupuestopapeleraComponent } from './presupuestos/presupuestopapelera.component';
 import { RemesapapeleraComponent } from './remesas/remesapapelera.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
+
 
 
 
@@ -61,6 +66,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     Ng2Rut,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
@@ -73,7 +79,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
 
   ],
-  providers: [RemesasService, ItemsService, PresupuestosService, UserService , AuthGuardService, ExportexcelService],
+  providers: [RemesasService, ItemsService, PresupuestosService, ExportexcelService, UserService, httpInterceptorProviders, AuthService,
+     TokenStorageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
