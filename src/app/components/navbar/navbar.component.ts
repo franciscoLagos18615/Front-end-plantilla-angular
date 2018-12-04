@@ -35,10 +35,14 @@ export class NavbarComponent implements OnInit {
                 this.authority = 'admin';
                 return false;
               } else if (role === 'ROLE_PM') {
-                this.authority = 'pm';
+                this.authority = 'upf';
                 return false;
               }
-              this.authority = 'user';
+              else if (role === 'ROLE_USER') {
+                this.authority = 'gobernacion';
+                return false;
+              }
+              this.authority = 'complejo';
               return true;
             });
           }

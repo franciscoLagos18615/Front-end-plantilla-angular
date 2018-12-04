@@ -1,49 +1,106 @@
-<!--
-<div *ngIf="isSignedUp; else signupForm">
-  Your registration is successful. Please login!
+<div class="main-content" >
+      
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                  <!-- Tabs Titles -->
+              
+                  <!-- Icon -->
+                  <div #signupForm class="fadeIn first">
+                    <img src="/assets/img/UPFLOGO2.png" id="icon" alt="User Icon" />
+                    <h1>Registrarse</h1>
+                  </div>
+              
+                  <!-- Login Form -->
+                  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                      <div class="form-group">
+                          <label for="name">Ingrese el nombre:</label>
+                          <input type="text" class="form-control fadeIn second" name="name" placeholder="Ignacio Gonzalez" [(ngModel)]="form.name" #name="ngModel" required />
+                          <div *ngIf="f.submitted && name.invalid">
+                            <div *ngIf="name.errors.required">Ingrese su nombre correctamente</div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="username">Ingrese el nombre que ocupara al iniciar sesion</label>
+                          <input type="text" class="form-control fadeIn second" name="username" placeholder="IgnacioGonzalez" [(ngModel)]="form.username" #username="ngModel"
+                            required />
+                          <div *ngIf="f.submitted && username.invalid">
+                            <div *ngIf="username.errors.required">Ingrese Correctamente el usuario para iniciar sesion</div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <h4>Seleccione el perfil</h4>
+                          <div class="form-check" *ngFor="let cat of categories">
+                              <input type="checkbox" style="margin: -23px; opacity: 2;" (change)="onChange(cat.name, $event.target.checked)" name="{{ cat.name }}" id="{{cat.name}}" 
+                               required>
+                              <label class="form-check-label" for="{{cat.name}}">
+                                  {{cat.name}}
+                              </label>
+                              <div class="invalid-feedback">Example invalid feedback text</div>
+                              
+                          </div>
+                            
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Correo Electronico Institucional</label>
+                          <input type="text" class="form-control fadeIn second" name="email" placeholder="i.gonzalez@interior.gov.cl" [(ngModel)]="form.email" #email="ngModel" required email />
+                          <div *ngIf="f.submitted && email.invalid">
+                            <div *ngIf="email.errors.required">Ingrese el correo institucional</div>
+                            <div *ngIf="email.errors.email">El correo no es valido </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Contraseña</label>
+                          <input type="password" class="form-control fadeIn second" name="password" [(ngModel)]="form.password" #password="ngModel"
+                            required minlength="6" />
+                          <div *ngIf="f.submitted && password.invalid">
+                            <div *ngIf="password.errors.required">Ingrese una contraseña</div>
+                            <div *ngIf="password.errors.minlength">Se necesitan al menos 6 caracteres en la contraseña</div>
+                          </div>
+                        </div>
+                        <div class="form-group fadeIn third">
+                          <button class="btn btn-primary">Registrar</button>
+                          <div *ngIf="f.submitted && errorRegistro" class="alert alert-warning">
+                            El usuario ya existe o compruebe los campos<br/>{{errorMessage}}
+                          </div>
+                          <div *ngIf="estaRegistrado" class="alert alert-info">
+                              Registrado Correctamente<br/>
+                            </div>
+                        </div>
+
+                        
+                    
+                  </form>
+              
+                  <!-- Remind Passowrd -->
+                  <div id="formFooter">
+                    <!--a class="underlineHover" href="#">Go to the Site</a-->
+                  </div>
+                  
+                  
+                  
+              
+                </div>
+              </div>
+          
+      </div>
+    </div>
+    &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
 </div>
--->
-<div #signupForm>
-  <div class="row col-sm-6" style="max-width:350px;">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="name">Your name</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
-        <div *ngIf="f.submitted && name.invalid">
-          <div *ngIf="name.errors.required">Name is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-          required />
-        <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">Username is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
-        <div *ngIf="f.submitted && email.invalid">
-          <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.email">Email must be a valid email address</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-          required minlength="6" />
-        <div *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-        <div *ngIf="f.submitted" class="alert alert-warning">
-          Signup failed!<br/>{{errorMessage}}
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+
+&nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp; &nbsp;&nbsp;
+                  &nbsp;
+

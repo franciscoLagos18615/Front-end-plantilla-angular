@@ -5,16 +5,36 @@ import { SignUpInfo } from '../auth/signup-info';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: []
+  styleUrls: ['/register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
   form: any = {};
-  role = ['admin'];
+  role: any= [];
+
   signupInfo: SignUpInfo;
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
+  estaRegistrado = false;
+  errorRegistro = false;
+  emailFormArray: Array<any> = [];
+  categories = [
+    {name : 'admin', id: 1},
+    {name : 'gobernacion', id: 2},
+    {name : 'upf', id: 3},
+    {name : 'complejo', id: 4}
+  ];
+
+  onChange(email:string, isChecked: boolean) {
+      if(isChecked) {
+        this.emailFormArray.push(email);
+      } else {
+        let index = this.emailFormArray.indexOf(email);
+        this.emailFormArray.splice(index,1);
+      }
+      this.role = this.emailFormArray;
+  }
 
   constructor(private authService: AuthService) { }
 
@@ -35,8 +55,10 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        this.estaRegistrado = true;
       },
       error => {
+        this.errorRegistro = true;
         console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;

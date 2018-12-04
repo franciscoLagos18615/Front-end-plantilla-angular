@@ -26,20 +26,6 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
-        this.roles = this.tokenStorage.getAuthorities();
-        this.roles.every(role => {
-          if (role === 'ROLE_ADMIN') {
-            this.authority = 'admin';
-            return false;
-          } else if (role === 'ROLE_PM') {
-            this.authority = 'pm';
-            return false;
-          }
-          this.authority = 'user';
-          return true;
-        });
-      }
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
