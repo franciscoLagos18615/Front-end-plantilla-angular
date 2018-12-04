@@ -21,6 +21,8 @@ import { PresupuestoComponent } from './../../presupuestos/presupuesto.component
 import { PresupuestopapeleraComponent } from 'app/presupuestos/presupuestopapelera.component';
 import { RemesapapeleraComponent } from './../../remesas/remesapapelera.component';
 import { RegisterComponent } from '../../register/register.component';
+import { LoginComponent } from '../../login/login.component';
+
 
 
 
@@ -72,6 +74,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'home',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'register',      component: RegisterComponent },
+    { path: 'login',      component: LoginComponent },
     { path: 'remesas',     component: TableListComponent },
     { path: 'remesa/:id',     component: RemesaComponent  },
     { path: 'remesaDetail/:id',     component: RemesadetailComponent  },

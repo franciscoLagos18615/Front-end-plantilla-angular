@@ -39,10 +39,13 @@ import { PresupuestoComponent } from './presupuestos/presupuesto.component';
 import { PresupuestopapeleraComponent } from './presupuestos/presupuestopapelera.component';
 import { RemesapapeleraComponent } from './remesas/remesapapelera.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
 
 
 

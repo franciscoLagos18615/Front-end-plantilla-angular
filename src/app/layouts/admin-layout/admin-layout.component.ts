@@ -5,6 +5,9 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { LoginComponent } from '../../login/login.component';
+import { TokenStorageService } from '../../auth/token-storage.service';
+
 
 @Component({
   selector: 'app-admin-layout',
@@ -15,10 +18,28 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  private roles: string[];
+  private authority: string;
+ 
 
-  constructor( public location: Location, private router: Router) {}
+  constructor( public location: Location, private router: Router, private tokenStorage: TokenStorageService) {
+  }
 
   ngOnInit() {
+    if (this.tokenStorage.getToken()) {
+        this.roles = this.tokenStorage.getAuthorities();
+        this.roles.every(role => {
+          if (role === 'ROLE_ADMIN') {
+            this.authority = 'admin';
+            return false;
+          } else if (role === 'ROLE_PM') {
+            this.authority = 'pm';
+            return false;
+          }
+          this.authority = 'user';
+          return true;
+        });
+      }
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {

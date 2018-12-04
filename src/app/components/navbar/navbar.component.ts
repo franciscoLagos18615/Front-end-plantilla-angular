@@ -1,26 +1,52 @@
 
+
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../../auth/token-storage.service';
+
+
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
+    info: any;
     private listTitles: any[];
     location: Location;
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    private roles: string[];
+  private authority: string;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router, private token: TokenStorageService) {
       this.location = location;
           this.sidebarVisible = false;
     }
 
     ngOnInit(){
+        if (this.token.getToken()) {
+            this.roles = this.token.getAuthorities();
+            this.roles.every(role => {
+              if (role === 'ROLE_ADMIN') {
+                this.authority = 'admin';
+                return false;
+              } else if (role === 'ROLE_PM') {
+                this.authority = 'pm';
+                return false;
+              }
+              this.authority = 'user';
+              return true;
+            });
+          }
+        this.info = {
+            token: this.token.getToken(),
+            username: this.token.getUsername(),
+            authorities: this.token.getAuthorities()
+          };
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -123,7 +149,10 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
-
+    logout() {
+        this.token.signOut();
+        window.location.reload();
+      }
     //fin funciones del template
     //onLogout(){
       //  sessionStorage.clear();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,8 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  info: any;
+  constructor(private token: TokenStorageService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -144,6 +146,16 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+      this.info = {
+        token: this.token.getToken(),
+        username: this.token.getUsername(),
+        authorities: this.token.getAuthorities()
+      };
+  }
+
+  logout() {
+    this.token.signOut();
+    window.location.reload();
   }
 
 }
