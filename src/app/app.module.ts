@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { Ng2Rut } from 'ng2-rut';
 import { AuthService } from './auth/auth.service';
 import { TokenStorageService } from './auth/token-storage.service';
+import { AuthGuardService } from './guard/auth-guard.service';
 
 
 
@@ -63,6 +64,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -83,7 +85,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
   ],
   providers: [RemesasService, ItemsService, PresupuestosService, ExportexcelService, UserService, httpInterceptorProviders, AuthService,
-     TokenStorageService ],
+     TokenStorageService, AuthGuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
