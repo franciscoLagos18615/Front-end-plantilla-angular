@@ -1,0 +1,101 @@
+<div class="main-content" *ngIf="authority === 'admin'">
+          
+  <div class="container-fluid">
+      <div class="row text-center">
+              <div class="col-md-6 text-left" >
+                      <button 
+                      [routerLink]="['/home']"
+                       mat-raised-button type="submit" class="btn btn-outline-warning pull-left">
+                       <i class="fas fa-home"></i>
+                        VOLVER AL INICIO</button>
+                   </div>
+                <div class="col-md-6 text-center">
+                    
+                 </div>
+              </div>
+           
+       <br> 
+        
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      <h4 class="card-title text-center">PANEL DE ADMINISTRACION</h4>
+                      
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead class=" text-primary">
+                              <th>ID</th>
+                              <th>
+                                  Nombre de Usuario
+                              </th>
+                              <th>
+                                  Correo
+                              </th>
+                              <th>
+                                  Perfil de Usuario
+                              </th>
+                              
+                              <th class="text-center">
+                                  Opciones </th>
+                             
+                          </thead>
+                          <tbody>
+                              <tr *ngFor=" let k of usuarios | keys; let i = index">
+                                <td>{{usuarios[k].id}}</td>
+                                <td>{{usuarios[k].username}}</td>
+                                <td>{{usuarios[k].email}}</td>
+                                <td > 
+                                  
+                                  
+                                  <div *ngIf="usuarios[k].roles.length == 2 ;else other_content">
+                                      <p>{{usuarios[k].roles[0].name}} </p> <p>{{usuarios[k].roles[1].name}}</p>
+                                  </div>    
+                                    <ng-template #other_content>
+                                            <div *ngIf="usuarios[k].roles.length == 1 ;else other_content2">
+                                                    <p>{{usuarios[k].roles[0].name}} </p> 
+                                                </div>
+                                                <ng-template #other_content2>
+                                                
+                                                    <p>No tiene rol asociado</p> 
+                                                </ng-template>
+                                    </ng-template>
+
+                                </td>
+                                  
+                                <td class="text-center">
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                 <!--button  
+                                 
+                                    type="button" class="btn btn-outline-info btn-sm" >
+                                    <i class="fas fa-align-justify"></i>
+                                    Revisar
+                                    </button-->
+                                <button  
+                                
+                                [routerLink]="['/panelAdministracionEdit', usuarios[k].id]"
+                                type="button" class="btn btn-outline-success btn-sm" >
+                                <i class="fas fa-edit"></i>
+                                Editar
+                                </button>
+                               
+
+                                </td>
+                                
+
+                              </tr>
+                                               
+                              
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

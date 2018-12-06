@@ -25,6 +25,10 @@ import { PresupuestopapeleraComponent } from '../../presupuestos/presupuestopape
 import { RemesapapeleraComponent } from '../../remesas/remesapapelera.component';
 import { RegisterComponent } from '../../register/register.component';
 import { LoginComponent } from '../../login/login.component';
+import { PaneladministracionComponent } from '../../paneladministracion/paneladministracion.component';
+import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
+
+
 
 
 
@@ -66,6 +70,8 @@ import {
     RemesapapeleraComponent,
     RegisterComponent,
     LoginComponent,
+    PaneladministracionComponent,
+    PaneladmineditComponent,
     KeysPipe,
   ]
 })

@@ -1,0 +1,95 @@
+<div class="main-content">
+    <h3 class="text-center">&nbsp; EDITAR USUARIO</h3>
+    
+    <button [routerLink]= "['/panelAdministracion']" 
+    class="btn btn-danger ">Regresar</button>
+  
+
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        
+                        <h3>Editar Usuario</h3>
+                    </div>
+                    <div class="card-body">
+                        <form name="form" (ngSubmit)="forma.form.valid && guardar()" #forma="ngForm" novalidate>
+                            
+                            
+                            
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="email">Correo Electronico Institucional</label>
+                                            <input type="text" class="form-control fadeIn second" name="email" placeholder="i.gonzalez@interior.gov.cl" [(ngModel)]="user.email" #email="ngModel" required email />
+                                            <div *ngIf="forma.submitted && email.invalid">
+                                              <div *ngIf="email.errors.required">Ingrese el correo institucional</div>
+                                              <div *ngIf="email.errors.email">El correo no es valido </div>
+                                            </div>
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer03">Perfil:</label>
+                                        <div class="form-check" *ngFor="let cat of categories">
+                                            <input type="checkbox" style="margin: -23px; opacity: 2;" (change)="onChange(cat.name, $event.target.checked)" name="{{ cat.name }}" id="{{cat.name}}" 
+                                             required>
+                                            <label class="form-check-label" for="{{cat.name}}">
+                                                {{cat.name}}
+                                            </label>
+                                            <div class="invalid-feedback">Example invalid feedback text</div>
+                                            
+                                        </div>
+                                      
+                                    
+                                      
+                                    </div>
+                                </div>
+                            -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer04">Contraseña:</label>
+                                      
+                                        <input 
+                                        matInput 
+                                        [(ngModel)]="user.password"
+                                        name="password"
+                                        class="form-control is-invalid"
+                                        #password="ngModel" [ngClass]="{'is-invalid':forma.submitted && password.invalid}"
+                                        id="validationServer04"
+                                        
+                                        type="password"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE UNA CONTRASEÑA
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                            
+                            
+                           
+                          
+                            <button 
+                            mat-raised-button type="Submit" class="btn btn-info pull-right"
+                            >Guardar cambios</button >
+
+                             <div *ngIf="seActualizo" class="alert alert-success" role="alert">
+                                     Usuario actualizado correctamente
+                              </div>
+                            
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>

@@ -3,6 +3,8 @@ import { RemesasService } from './../services/remesas.service';
 import { Remesa } from './../interfaces/remesa.interface';
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { TokenStorageService } from '../auth/token-storage.service';
+
 
 
 
@@ -20,17 +22,18 @@ export class RemesaComponent implements OnInit {
     status: 'Por Revisar',
     governance: '',
     status_bin: 'activo',
+    name_user: null,
 
   };
-
+  info: any;
   nuevo: boolean = false;
   id: number;
   seCreo:boolean = false;
   seActualizo:boolean = false;
-  constructor(private _remesasService: RemesasService, private router:Router, private route:ActivatedRoute ) { 
+  constructor(private _remesasService: RemesasService, private router:Router, private route:ActivatedRoute,
+    private token: TokenStorageService  ) { 
     /** */
 
-    
     this.route.params
       .subscribe(
       (parametros) => {
@@ -47,11 +50,15 @@ export class RemesaComponent implements OnInit {
         }
 
       });
-  
 
   }
 
   ngOnInit() {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
   }
 
 
@@ -61,7 +68,8 @@ export class RemesaComponent implements OnInit {
 
     if(this.id == 0){
       console.log("es post");
-
+      this.remesa.name_user= this.info.username;
+      console.log('la remesa creada es ', this.remesa);
       this._remesasService.nuevaRemesa(this.remesa)
       .subscribe(data=>{
         this.router.navigate(['/remesa',this.id]);

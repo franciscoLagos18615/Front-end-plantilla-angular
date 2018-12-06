@@ -3,5 +3,6 @@ export interface Remesa{
     status: string;
     governance: string;
     status_bin: string;
+    name_user?: string;
     id_consignment$?: number;
 }

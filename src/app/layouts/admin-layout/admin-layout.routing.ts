@@ -23,6 +23,9 @@ import { RemesapapeleraComponent } from './../../remesas/remesapapelera.componen
 import { RegisterComponent } from '../../register/register.component';
 import { LoginComponent } from '../../login/login.component';
 import { AuthGuardService } from './../../guard/auth-guard.service';
+import { PaneladministracionComponent } from '../../paneladministracion/paneladministracion.component';
+import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
+
 
 
 
@@ -83,6 +86,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'presupuestos',     component: TypographyComponent , canActivate: [AuthGuardService]  },
     { path: 'presupuesto/:id',     component: PresupuestoComponent , canActivate: [AuthGuardService] },
     { path: 'presupuestoPapelera',     component: PresupuestopapeleraComponent, canActivate: [AuthGuardService] },
+    { path: 'panelAdministracion',     component: PaneladministracionComponent, canActivate: [AuthGuardService] },
+    { path: 'panelAdministracionEdit/:id',     component: PaneladmineditComponent, canActivate: [AuthGuardService] },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },

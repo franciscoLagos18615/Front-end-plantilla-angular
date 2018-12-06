@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { SignUpInfo } from '../auth/signup-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
       this.role = this.emailFormArray;
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService , private _route: Router) { }
 
   ngOnInit() { }
 
@@ -56,6 +57,7 @@ export class RegisterComponent implements OnInit {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
         this.estaRegistrado = true;
+        //this.reloadPage();
       },
       error => {
         this.errorRegistro = true;
@@ -64,6 +66,12 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+  }
+
+  reloadPage() {
+    window.location.reload();
+    //this._route.navigate(['/home']);
+    //window.location.reload();
   }
 
 }
