@@ -15,9 +15,7 @@ export const ROUTES: RouteInfo[] = [
     //typography
     { path: '/presupuestos', title: 'Presupuestos',  icon:'attach_money', class: '' },
     { path: '/panelAdministracion', title: 'Panel de Administracion',  icon:'dashboard', class: '' },
-    //{ path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    //{ path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    //{ path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+
 ];
 
 @Component({

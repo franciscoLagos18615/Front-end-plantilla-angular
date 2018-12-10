@@ -1,7 +1,7 @@
 
 
 
-<div class="main-content">
+<div class="main-content" *ngIf="authority === 'admin' || authority === 'upf'  ">
     <h3 class="text-center">&nbsp; Presupuesto</h3>
     
     <button [routerLink]= "['/presupuestos']" 

@@ -20,6 +20,44 @@
                     <img  src="/assets/img/pinoHachado.png" class="img-fluid" alt="Responsive image">
                 </div>
         </div>
+
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" style=" display: block;
+              width: 90%;
+              height: 210px;" src="/assets/img/presupuestos3.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Agregar Presupuestos</h5>
+                <p class="card-text">En esta seccion se puede agregar un nuevo presupuesto</p>
+              </div>
+              <div class="card-footer">
+                <button 
+                          
+                          [routerLink]="['/presupuesto',0]"
+                           mat-raised-button type="submit" class="btn btn-info pull-right">
+                           <i class="fas fa-plus-circle"></i>
+                            NUEVO PRESUPUESTO</button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" style=" display: block;
+              width: 90%;
+              height: 210px;" src="/assets/img/remesa.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Agregar Remesa</h5>
+                <p class="card-text">En esta seccion podemos agregar una nueva solicitud de remesa</p>
+              </div>
+              <div class="card-footer">
+                <button [routerLink]="['/remesa',0]"
+                     mat-raised-button type="submit" class="btn btn-info pull-right">
+                     <i class="fas fa-plus-circle"></i>
+                      NUEVA REMESA</button>
+              </div>
+            </div>
+            
+          </div>
+
+
     </div>
 </div>
         
