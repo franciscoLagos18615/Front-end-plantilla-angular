@@ -12,7 +12,7 @@
                      <i class="fas fa-recycle"></i>
                       IR A PAPELERA DE REMESAS</button>
                  </div>
-                <div class="col-md-6 text-center" *ngIf="!authority === 'complejo'">
+                <div class="col-md-6 text-center" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion' ">
                     <button [routerLink]="['/remesa',0]"
                      mat-raised-button type="submit" class="btn btn-info pull-right">
                      <i class="fas fa-plus-circle"></i>
@@ -58,14 +58,14 @@
                                         Revisar
                                         </button>
                                     <button  
-                                    *ngIf="!authority === 'complejo' "
+                                    *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion'  "
                                     [routerLink]="['/remesa', remesas[k].id_consignment]"
                                     type="button" class="btn btn-outline-success btn-sm" >
                                     <i class="fas fa-edit"></i>
                                     Editar
                                     </button>
                                     <button 
-                                    *ngIf="!authority === 'complejo' || !authority === 'gobernacion'"
+                                    *ngIf="authority === 'admin' || authority === 'upf' "
                                     (click)="cambiarEstado(remesas[k],remesas[k].id_consignment,'inactivo')"
                                     type="button" class="btn btn-outline-danger btn-sm">
                                     <i class="fas fa-trash-alt"></i>

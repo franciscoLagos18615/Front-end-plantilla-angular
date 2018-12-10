@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion'">
     <h3 class="text-center">&nbsp; Nuevo Item </h3>
     
     <button (click)="goBack()"

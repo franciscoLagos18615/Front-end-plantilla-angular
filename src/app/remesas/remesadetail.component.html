@@ -67,7 +67,7 @@
             </div>
         </div>
         <!--fin de row-->
-        <div class="row text-center" *ngIf="!authority === 'complejo'" >
+        <div class="row text-center" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion' " >
             <div class="col-md-12 text-center">
                 <button 
                 [routerLink]="['/remesa', remesas.id_consignment,'item', 0]"

@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
     
-                            <div class="row">
+                            <div class="row" *ngIf="authority === 'admin' || authority === 'upf'  " >
                                 <div class="col-md-12">
                                  
                                       <label>Estado</label>

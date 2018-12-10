@@ -4,6 +4,7 @@ import { RemesasService } from '../services/remesas.service';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Remesa } from 'app/interfaces/remesa.interface';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class TableListComponent implements OnInit {
   remesas: any[] = [];
   info: any;
 
-  constructor(private _remesasService: RemesasService, private router: Router, private http: Http) { 
+  constructor(private _remesasService: RemesasService, private router: Router, private http: Http, 
+    private token: TokenStorageService) { 
     this._remesasService.getRemesas()
         .subscribe(data => {
           console.log(data);
