@@ -2,6 +2,7 @@ import { PresupuestosService } from './../services/presupuestos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Presupuesto } from '../interfaces/presupuesto.interface';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class PresupuestoComponent implements OnInit {
   seActualizo:boolean = false;
   info: any;
 
-  constructor(private _presupuestoService: PresupuestosService, private route: ActivatedRoute,private router: Router ) {
+  constructor(private _presupuestoService: PresupuestosService, private route: ActivatedRoute,private router: Router,
+    private token:TokenStorageService ) {
 
     this.route.params
       .subscribe(

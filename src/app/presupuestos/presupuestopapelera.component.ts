@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PresupuestosService } from '../services/presupuestos.service';
 import { Presupuesto } from 'app/interfaces/presupuesto.interface';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-presupuestopapelera',
@@ -14,7 +15,8 @@ export class PresupuestopapeleraComponent implements OnInit {
   presupuesto: Presupuesto;
   info: any;
 
-  constructor(private _presupuestosService: PresupuestosService, private router: Router , private http: Http) { 
+  constructor(private _presupuestosService: PresupuestosService, private router: Router , private http: Http,
+    private token: TokenStorageService) { 
     this._presupuestosService.getPresupuestosInactivos()
     .subscribe(data => {
       console.log(data);
