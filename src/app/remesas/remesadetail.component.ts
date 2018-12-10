@@ -4,6 +4,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import {map} from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 
 @Component({
@@ -37,8 +38,10 @@ export class RemesadetailComponent implements OnInit {
 
     nombreArchivo: string ;
     exportando: any;
+    info: any;
 
-  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private _exportexcel: ExportexcelService) { 
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private _exportexcel: ExportexcelService,
+    private token: TokenStorageService) { 
 
     this.route.params
       .subscribe(
@@ -86,7 +89,35 @@ export class RemesadetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.token.getToken()) {
+      this.roles = this.token.getAuthorities();
+      this.roles.every(role => {
+      if(this.roles[1] === 'ROLE_ADMIN' && this.roles[0] === 'ROLE_UPF'){
+              this.authority='admin';
+              return false;
+          }
+       else if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        else if (role === 'ROLE_UPF') {
+          this.authority = 'upf';
+          return false;
+        }
+        else if (role === 'ROLE_GOBERNACION') {
+          this.authority = 'gobernacion';
+          return false;
+        }
+        this.authority = 'complejo';
+        return true;
+      });
+    }
 
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
     }
 //metodo que refresca la pagina despues de actualizar el estado del item(aprobado o rechazado)
 

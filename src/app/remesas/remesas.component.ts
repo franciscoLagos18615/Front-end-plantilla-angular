@@ -12,6 +12,7 @@ import { Remesa } from 'app/interfaces/remesa.interface';
 })
 export class TableListComponent implements OnInit {
   remesas: any[] = [];
+  info: any;
 
   constructor(private _remesasService: RemesasService, private router: Router, private http: Http) { 
     this._remesasService.getRemesas()
@@ -24,6 +25,36 @@ export class TableListComponent implements OnInit {
 
   ngOnInit() {
     this.allRemesas()
+    if (this.token.getToken()) {
+      this.roles = this.token.getAuthorities();
+      this.roles.every(role => {
+      if(this.roles[1] === 'ROLE_ADMIN' && this.roles[0] === 'ROLE_UPF'){
+              this.authority='admin';
+              return false;
+          }
+       else if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        else if (role === 'ROLE_UPF') {
+          this.authority = 'upf';
+          return false;
+        }
+        else if (role === 'ROLE_GOBERNACION') {
+          this.authority = 'gobernacion';
+          return false;
+        }
+        this.authority = 'complejo';
+        return true;
+      });
+    }
+
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+
   }
 
   //metodo que refresca la pagina 

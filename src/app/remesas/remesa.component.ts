@@ -54,11 +54,36 @@ export class RemesaComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.token.getToken()) {
+      this.roles = this.token.getAuthorities();
+      this.roles.every(role => {
+      if(this.roles[1] === 'ROLE_ADMIN' && this.roles[0] === 'ROLE_UPF'){
+              this.authority='admin';
+              return false;
+          }
+       else if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        else if (role === 'ROLE_UPF') {
+          this.authority = 'upf';
+          return false;
+        }
+        else if (role === 'ROLE_GOBERNACION') {
+          this.authority = 'gobernacion';
+          return false;
+        }
+        this.authority = 'complejo';
+        return true;
+      });
+    }
+
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+
   }
 
 

@@ -67,7 +67,7 @@
             </div>
         </div>
         <!--fin de row-->
-        <div class="row text-center">
+        <div class="row text-center" *ngIf="!authority === 'complejo'" >
             <div class="col-md-12 text-center">
                 <button 
                 [routerLink]="['/remesa', remesas.id_consignment,'item', 0]"
@@ -110,17 +110,20 @@
                       <tbody>
                         <tr *ngFor=" let k of items | keys; let i = index">
                           <th>
-                            <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'aprobado' )"
+                            <button *ngIf="authority === 'admin' || authority === 'upf'  " 
+                            (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'aprobado' )"
                             type="button" class="btn btn-info btn-sm">
                             <i class="fas fa-check-circle"></i>
                             Validar Item
                           </button> 
-                            <button [routerLink]="['/remesa',remesas.id_consignment, 'item',items[k].item_id]"
+                            <button *ngIf="authority === 'admin' || authority === 'gobernacion' " 
+                            [routerLink]="['/remesa',remesas.id_consignment, 'item',items[k].item_id]"
                             type="button" class="btn btn-success btn-sm">
                             <i class="fas fa-edit"></i>
                             Editar item
                             </button> 
-                            <button (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'rechazado' )"
+                            <button *ngIf="authority === 'admin' || authority === 'upf'  " 
+                            (click)="cambiarEstado(items[k],remesas.id_consignment,items[k].item_id, 'rechazado' )"
                             type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-times-circle"></i>
                             Rechazar item
