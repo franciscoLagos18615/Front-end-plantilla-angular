@@ -3,6 +3,7 @@ import { RemesasService } from './../services/remesas.service';
 import { Component, OnInit } from '@angular/core';
 import { Remesa } from 'app/interfaces/remesa.interface';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'app/auth/token-storage.service';
 
 @Component({
   selector: 'app-remesapapelera',
@@ -13,7 +14,7 @@ export class RemesapapeleraComponent implements OnInit {
   remesas: any[] = [];
   remesa: Remesa;
   info: any;
-  constructor(private _remesasService: RemesasService, private router: Router, private http: Http) { 
+  constructor(private _remesasService: RemesasService, private router: Router, private http: Http, private token: TokenStorageService) { 
     this._remesasService.getPresupuestosInactivos()
       .subscribe( data =>{
         console.log(data);

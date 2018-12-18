@@ -193,6 +193,7 @@
                                   
                                 </div>
                             </div>
+                            <!--
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="validationServer28">Item Presupuestario:</label>
@@ -214,6 +215,92 @@
                                   
                                 </div>
                             </div>
+                        -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <label for="validationServer28">Item Presupuestario:</label>
+                                    <select class="browser-default custom-select" 
+                                    [(ngModel)]="item.budget_item"
+                                    name="budget_item"
+                                    class="form-control is-invalid"
+                                    #budget_item="ngModel" [ngClass]="{'is-invalid':forma.submitted && budget_item.invalid}"
+                                    id="validationServer28"
+                                    placeholder="Choose an option"
+                                    required>
+                                    <option value="" disabled selected>Eliga una opcion</option>
+                                        <option value="4.01.21.101">4.01.21.101</option>
+                                        <option value="4.01.21.102">4.01.21.102</option>
+                                        <option value="4.01.21.103">4.01.21.103</option>
+                                        <option value="4.01.21.104">4.01.21.104</option>
+                                        <option value="4.01.22.101">4.01.22.101</option>
+                                        <option value="4.01.22.102">4.01.22.102</option>
+                                        <option value="4.01.22.111">4.01.22.111</option>
+                                        <option value="4.01.22.112">4.01.22.112</option>
+                                        <option value="4.01.22.113">4.01.22.113</option>
+                                        <option value="4.01.22.119">4.01.22.119</option>
+                                        <option value="4.01.22.122">4.01.22.122</option>
+                                        <option value="4.01.22.123">4.01.22.123</option>
+                                        <option value="4.01.22.125">4.01.22.125</option>
+                                        <option value="4.01.22.126">4.01.22.126</option>
+                                        <option value="4.01.22.129">4.01.22.129</option>
+                                        <option value="4.01.22.201">4.01.22.201</option>
+                                        <option value="4.01.22.202">4.01.22.202</option>
+                                        <option value="4.01.22.203">4.01.22.203</option>
+                                        <option value="4.01.22.301">4.01.22.301</option>
+                                        <option value="4.01.22.302">4.01.22.302</option>
+                                        <option value="4.01.22.303">4.01.22.303</option>
+                                        <option value="4.01.22.401">4.01.22.401</option>
+                                        <option value="4.01.22.403">4.01.22.403</option>
+                                        <option value="4.01.22.407">4.01.22.407</option>
+                                        <option value="4.01.22.408">4.01.22.408</option>
+                                        <option value="4.01.22.409">4.01.22.409</option>
+                                        <option value="4.01.22.410">4.01.22.410</option>
+                                        <option value="4.01.22.411">4.01.22.411</option>
+                                        <option value="4.01.22.412">4.01.22.412</option>
+                                        <option value="4.01.22.499">4.01.22.499</option>
+                                        <option value="4.01.22.501">4.01.22.501</option>
+                                        <option value="4.01.22.502">4.01.22.502</option>
+                                        <option value="4.01.22.503">4.01.22.503</option>
+                                        <option value="4.01.22.505">4.01.22.505</option>
+                                        <option value="4.01.22.506">4.01.22.506</option>
+                                        <option value="4.01.22.507">4.01.22.507</option>
+                                        <option value="4.01.22.508">4.01.22.508</option>
+                                        <option value="4.01.22.601">4.01.22.601</option>
+                                        <option value="4.01.22.602">4.01.22.602</option>
+                                        <option value="4.01.22.603">4.01.22.603</option>
+                                        <option value="4.01.22.604">4.01.22.604</option>
+                                        <option value="4.01.22.606">4.01.22.606</option>
+                                        <option value="4.01.22.607">4.01.22.607</option>
+                                        <option value="4.01.22.701">4.01.22.701</option>
+                                        <option value="4.01.22.702">4.01.22.702</option>
+                                        <option value="4.01.22.703">4.01.22.703</option>
+                                        <option value="4.01.22.704">4.01.22.704</option>
+                                        <option value="4.01.22.801">4.01.22.801</option>
+                                        <option value="4.01.22.802">4.01.22.802</option>
+                                        <option value="4.01.22.805">4.01.22.805</option>
+                                        <option value="4.01.22.806">4.01.22.806</option>
+                                        <option value="4.01.22.807">4.01.22.807</option>
+                                        <option value="4.01.22.808">4.01.22.808</option>
+                                        <option value="4.01.22.899">4.01.22.899</option>
+                                        <option value="4.01.22.999">4.01.22.999</option>
+                                        <option value="4.01.29.400">4.01.29.400</option>
+                                        <option value="4.01.29.501">4.01.29.501</option>
+                                        <option value="4.01.29.502">4.01.29.502</option>
+                                        <option value="4.01.29.503">4.01.29.503</option>
+                                        <option value="4.01.29.599">4.01.29.599</option>
+                                        <option value="4.01.29.601">4.01.29.601</option>
+                                        <option value="4.01.29.702">4.01.29.702</option>
+                                        
+                                      </select>
+                                      <div class="invalid-feedback">
+                                            SELECCIONE ALGUNA OPCION DE ITEM PRESUPUESTARIO
+                                          </div>
+                             
+                                  
+                                </div>
+                            </div>
+                            <!--
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="validationServer29">NOMBRE DEL ITEM:</label>
@@ -235,17 +322,91 @@
                                   
                                 </div>
                             </div>
+                        -->
 
-                            <!--
-                            
-                            
-                            
-                            
-                            
-                               
-                                
+                        <div class="row">
+                                <div class="col-md-12">
+                                        <label for="validationServer29">Nombre del item:</label>
+                                    <select class="browser-default custom-select" 
+                                    [(ngModel)]="item.name_item"
+                                    name="name_item"
+                                    class="form-control is-invalid"
+                                    #name_item="ngModel" [ngClass]="{'is-invalid':forma.submitted && name_item.invalid}"
+                                    id="validationServer29"
+                                    placeholder="Choose an option"
+                                    required>
+                                    <option value="" disabled selected>Eliga el nombre del item</option>
+                                        <option value="Honorarios a suma alzada">Honorarios a suma alzada</option>
+                                        <option value="Viatico de honorarios a suma alzada">Viatico de honorarios a suma alzada</option>
+                                        <option value="Comisiones de servicios en el pais">Comisiones de servicios en el pais"</option>
+                                        <option value="Comisiones de servicios en el exterior">Comisiones de servicios en el exterior</option>
+                                        <option value="Seguros de inmuebles">Seguros de inmuebles</option>
+                                        <option value="Prima y gastos de seguros">Prima y gastos de seguros</option>
+                                        <option value="Estudio e investigaciones">Estudio e investigaciones</option>
+                                        <option value="Cursos de capacitacion">Cursos de capacitacion</option>
+                                        <option value="Servicios Informaticos">Servicios Informaticos</option>
+                                        <option value="Otros Servicios tecnicos y profesionales">Otros Servicios tecnicos y profesionales</option>
+                                        <option value="Gastos Menores">Gastos Menores</option>
+                                        <option value="Gastos de representacion, protocolo y ceremonial">Gastos de representacion, protocolo y ceremonial</option>
+                                        <option value="Derecho y tasas">Derecho y tasas</option>
+                                        <option value="Contribuciones">Contribuciones</option>
+                                        <option value="Otros Gastos Imprevistos">Otros Gastos Imprevistos</option>
+                                        <option value="Textiles y acabados textile">Textiles y acabados textile</option>
+                                        <option value="Vestuario accesorios y prendas de vestir">Vestuario accesorios y prendas de vestir</option>
+                                        <option value="Calzados">Calzados</option>
+                                        <option value="Combustibles y lubricantes para vehiculos">Combustibles y lubricantes para vehiculos</option>
+                                        <option value="Combustibles para calefaccion">Combustibles para calefaccion</option>
+                                        <option value="Combustibles y lubricantes para generadores">Combustibles y lubricantes para generadores</option>
+                                        <option value="Materiales de oficina">Materiales de oficina</option>
+                                        <option value="Productos Quimicos">Productos Quimicos</option>
+                                        <option value="Materiales y utiles de aseo">Materiales y utiles de aseo</option>
+                                        <option value="Menaje para oficina, casino y otros">Menaje para oficina, casino y otros</option>
+                                        <option value="Insumos repuestos y accesorios computacionales">Insumos repuestos y accesorios computacionales</option>
+                                        <option value="Materiales para mantenimiento y repaciones de inmuebles">Materiales para mantenimiento y repaciones de inmuebles</option>
+                                        <option value="Respuestos y accesorios para mantenimiento y reparacion de vehiculos">Respuestos y accesorios para mantenimiento y reparacion de vehiculos</option>
+                                        <option value="Otros materiales repuestos y utiles diversos">Otros materiales repuestos y utiles diversos</option>
+                                        <option value="Otros materiales de consumo">Otros materiales de consumo</option>
+                                        <option value="Electricidad">Electricidad</option>
+                                        <option value="Agua">Agua</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="Telefonia Fija">Telefonia Fija</option>
+                                        <option value="Telefonia celular">Telefonia celular</option>
+                                        <option value="Acceso a internet">Acceso a internet</option>
+                                        <option value="Enlace de telecomunicaciones">Enlace de telecomunicaciones</option>
+                                        <option value="Mantenimiento y reparaciones edificaciones">Mantenimiento y reparaciones edificaciones</option>
+                                        <option value="Mantenimiento y reparaciones de vehiculos">Mantenimiento y reparaciones de vehiculos</option>
+                                        <option value="Mantenimiento y reparaciones mobiliario y otros">Mantenimiento y reparaciones mobiliario y otros</option>
+                                        <option value="Mantenimiento y reparaciones maquinarias y equipos oficina">Mantenimiento y reparaciones maquinarias y equipos oficina</option>
+                                        <option value="Mantenimiento y reparaciones de otras maquinas y equipos">Mantenimiento y reparaciones de otras maquinas y equipos</option>
+                                        <option value="Mantenimiento y reparaciones equipos informaticos">Mantenimiento y reparaciones equipos informaticos</option>
+                                        <option value="Servicios de publicidad">Servicios de publicidad</option>
+                                        <option value="Servicios de impresion">Servicios de impresion</option>
+                                        <option value="Servicios de encuadernacion y empaste">Servicios de encuadernacion y empaste</option>
+                                        <option value="Otros publicidad y difusion">Otros publicidad y difusion</option>
+                                        <option value="Servicio de aseo">Servicio de aseo</option>
+                                        <option value="Servicio de vigilancia">Servicio de vigilancia</option>
+                                        <option value="Pasaje dentro del pais">Pasaje dentro del pais</option>
+                                        <option value="Pasajes al exterior">Pasajes al exterior</option>
+                                        <option value="Fletes por traslado bienes muebles">Fletes por traslado bienes muebles</option>
+                                        <option value="Servicios de suscripciones y similares">Servicios de suscripciones y similares</option>
+                                        <option value="Otros servicios generales">Otros servicios generales</option>
+                                        <option value="Otros arriendos">Otros arriendos</option>
+                                        <option value="Muebles y enseres">Muebles y enseres</option>
+                                        <option value="Maquinas y equipos de oficina">Maquinas y equipos de oficina</option>
+                                        <option value="Maquinarias">Maquinarias</option>
+                                        <option value="Equipos">Equipos</option>
+                                        <option value="Otros activos no financieros">Otros activos no financieros</option>
+                                        <option value="Equipos computacionales y perifericos">Equipos computacionales y perifericos</option>
+                                        <option value="Sistemas de informacion">Sistemas de informacion</option>
+                                        
+                                      </select>
+                                      <div class="invalid-feedback">
+                                            SELECCIONE EL NOMBRE DEL ITEM
+                                          </div>
                              
-                                -->
+                                  
+                                </div>
+                            </div>
                            
                           
                             <button 
