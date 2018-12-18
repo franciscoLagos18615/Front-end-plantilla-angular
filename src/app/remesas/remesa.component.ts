@@ -19,7 +19,7 @@ export class RemesaComponent implements OnInit {
 
   remesa: Remesa = {
     request: '',
-    status: 'Por Revisar',
+    status: 'Realizando',
     governance: '',
     status_bin: 'activo',
     name_user: null,

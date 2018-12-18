@@ -6,11 +6,7 @@
       class="btn btn-outline-success pull-left "> <i class="fas fa-arrow-circle-left"> Listado Remesas</i></button>
     </div>
     <div class="col-md-6 text-center">
-      <!--
-      <button 
-        (click)="getExport(remesas.id_consignment)"
-        mat-raised-button type="submit" class="btn btn-warning pull-right"><i class="fas fa-file-excel"></i> EXPORTAR REMESA</button>
-        -->  
+      
         <a class="btn btn-warning pull-right" [href]="urlExportable" role="button"><i class="fas fa-file-excel"></i> EXPORTAR REMESA</a>
     </div>
       
@@ -58,6 +54,19 @@
                           <td ><strong>Usuario:</strong></td>
                           <td>{{remesas.name_user}}<td>
                         </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td ></td>
+                            <td class="text-right">
+                                <button *ngIf="authority === 'admin' || authority === 'gobernacion'  " 
+                                (click)="enviarAUPF(remesas,remesas.id_consignment,'Enviada UPF')"
+                                type="button" class="btn btn-info btn-sm">
+                                <i class="fas fa-check-circle"></i>
+                                Enviar para revision de UPF
+                              </button> 
+                              <td>
+                          </tr>
+
                     </tbody>
                   </table>
                   <!--FIN DE LA TABLA, AHORA AGREGAR UN BOTON PARA NUEVOS ITEMS-->
@@ -171,6 +180,53 @@
                       <th scope="row">Total:</th>
                       
                       <td>{{total | currency}}</td>
+                      
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                <!--FIN DEL CUADRO DEL MONTO TOTAL DE LA REMESA-->
+
+              </div>
+        
+          </div>
+      </div>
+      <!--FIN DEL MONTO TOTAL, PARA DAR PASO A RESPONDER LA REMESA-->
+      <div class="card-header card-header-warning" *ngIf="authority === 'admin' || authority === 'upf' " >
+          <h3 class="card-title text-center">RESPONDER LA REMESA Nº {{remesas.id_consignment}}</h3>
+          
+      </div>
+
+      <div class="row" *ngIf="authority === 'admin' || authority === 'upf' " >
+          <div class="col-md-12">
+              <div class="card">
+
+              <table class="table table-hover">
+                 
+                  <tbody >
+                      <tr >
+                      <th scope="row">Opciones</th>
+                      
+                      <td>
+
+                          <button
+                          (click)="cambiarEstadoDeRemesa(remesas,remesas.id_consignment,'Aprobado')" 
+                          type="button" class="btn btn-info btn-sm">
+                          <i class="fas fa-check-circle"></i>
+                          Aprobar Remesa
+                        </button> 
+                          <button 
+                          (click)="cambiarEstadoDeRemesa(remesas,remesas.id_consignment,'Aprobado Parcialmente')" 
+                          type="button" class="btn btn-success btn-sm">
+                         Aprobar Parcialmente la remesa
+                          </button> 
+                          <button
+                          (click)="cambiarEstadoDeRemesa(remesas,remesas.id_consignment,'Rechazado')"  
+                          type="button" class="btn btn-danger btn-sm">
+                          <i class="fas fa-times-circle"></i>
+                          Rechazar Remesa
+                        </button>
+                      </td>
                       
                     </tr>
                     

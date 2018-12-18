@@ -5,6 +5,7 @@ import { Http, Headers } from '@angular/http';
 import {map} from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../auth/token-storage.service';
+import { Remesa } from '../interfaces/remesa.interface';
 
 
 @Component({
@@ -190,7 +191,86 @@ export class RemesadetailComponent implements OnInit {
 
 
   }
+
+//METODO PARA ACTUALIZAR EL ESTADO DE LA REMESA, ES DECIR ENVIAR PA LA REVISION DE LA UPF
+enviarAUPF(remesa: Remesa, id1: number, estado: string) {
+  let remesaURL= 'http://localhost:8080/api/consignmentSendUPF/'
+  let body = JSON.stringify(remesa);
+  let headers = new Headers({
+    'Content-Type':'application/json'
+  });
+  let url = `${remesaURL}${id1}/${estado}`;
+  console.log("url del boton cambiar estado remesa para enviar upf",url);
+
+    if (window.confirm('¿Esta Seguro que desea enviar para la revision de la remesa a la UPF ?')){
+      return this.http.put(url, body, { headers})
+        .subscribe(
+          data => {
+            console.log(data)
+            this.refresh();
+          }
+        )
+
+     }
+
+
+
+}
 //fin del metodo
+//metodo para aprobar, aprobar parcialmente o rechazar la remesa
+cambiarEstadoDeRemesa(remesa: Remesa, id1: number, estado: string) {
+  let urlCambiarEstado= 'http://localhost:8080/api/consignmentDecision/'
+  let body = JSON.stringify(remesa);
+  let headers = new Headers({
+    'Content-Type':'application/json'
+  });
+  let url2 = `${urlCambiarEstado}${id1}/${estado}`;
+  console.log("url para cambiar estado remesa",url2);
+  if(estado == "Aprobado"){
+    if (window.confirm('¿Esta Seguro que desea Aprobar la remesa?')){
+      return this.http.put(url2, body, { headers})
+        .subscribe(
+          data => {
+            console.log(data)
+            this.refresh();
+          }
+        )
+
+     }
+
+  }
+  else {
+    if(estado == "Aprobado Parcialmente"){
+      if (window.confirm('¿Esta Seguro que desea Aprobar parcialmente la remesa?')){
+        return this.http.put(url2, body, { headers})
+          .subscribe(
+            data => {
+              console.log(data)
+              this.refresh();
+            }
+          )
+  
+       }
+  
+    }
+    if(estado == "Rechazado"){
+      if (window.confirm('¿Esta Seguro que desea rechazar la remesa?')){
+        return this.http.put(url2, body, { headers})
+          .subscribe(
+            data => {
+              console.log(data)
+              this.refresh();
+            }
+          )
+  
+       }
+  
+    }
+
+  }
+
+
+}
 
 //method that return total sum money consignment in relationship items
 getSumaConsignment(id_consignment$: number){
