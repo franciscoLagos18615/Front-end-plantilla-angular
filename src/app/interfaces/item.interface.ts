@@ -11,4 +11,6 @@ export interface Item {
     name_item: string;
     status: string;
     item_id$?: number;
+    //content: File;
+    //type: string;
 }

@@ -1,6 +1,6 @@
 import { ExportexcelService } from './../services/exportexcel.service';
 import { Item } from './../interfaces/item.interface';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import {map} from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,6 +16,7 @@ import { Remesa } from '../interfaces/remesa.interface';
 
 @Injectable()
 export class RemesadetailComponent implements OnInit {
+  //@Input() fileUpload: string;
   remesas: any[] = [];
   urlExportable: string;
   id: number;

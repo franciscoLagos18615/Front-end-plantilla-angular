@@ -338,7 +338,7 @@
                                     <option value="" disabled selected>Eliga el nombre del item</option>
                                         <option value="Honorarios a suma alzada">Honorarios a suma alzada</option>
                                         <option value="Viatico de honorarios a suma alzada">Viatico de honorarios a suma alzada</option>
-                                        <option value="Comisiones de servicios en el pais">Comisiones de servicios en el pais"</option>
+                                        <option value="Comisiones de servicios en el pais">Comisiones de servicios en el pais</option>
                                         <option value="Comisiones de servicios en el exterior">Comisiones de servicios en el exterior</option>
                                         <option value="Seguros de inmuebles">Seguros de inmuebles</option>
                                         <option value="Prima y gastos de seguros">Prima y gastos de seguros</option>
@@ -407,7 +407,33 @@
                                   
                                 </div>
                             </div>
-                           
+                            <!--
+                            [(ngModel)]="item.content"
+                                        name="content"
+                                        class="form-control is-invalid"
+                                        #content="ngModel" [ngClass]="{'is-invalid':forma.submitted && content.invalid}"
+                                        id="validationServer30"
+                                        -->
+                            <!--
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationServer30">PDF asociado:</label>
+                                      
+                                    
+                                        <input 
+                                        
+                                        id="validationServer30"
+                                        type="file"
+                                        enctype="multipart/form-data"
+                                        (change)="handleFileInput($event.target.files)"
+                                        required>
+                                        <div class="invalid-feedback">
+                                            INGRESE UN PDF ASOCIADO AL ITEM
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                           -->     
                           
                             <button 
                              type="Submit" class="btn btn-info pull-right"

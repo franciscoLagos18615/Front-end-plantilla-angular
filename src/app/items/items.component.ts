@@ -24,9 +24,11 @@ export class ItemsComponent implements OnInit {
     resolution: null,
     rut: '',
     status: 'Por revisar',
-    type_gast: '',
+    type_gast: ''
+    //type: 'multipart/form-data'
 
   };
+  fileToUpload: File = null;
 
   info: any;
   nuevo: boolean = false;
@@ -102,7 +104,7 @@ export class ItemsComponent implements OnInit {
     if( this.id2 === '0' ){
       console.log('este es el item', this.item)
 
-      this._itemsService.nuevoItem(this.item, this.id1)
+      this._itemsService.nuevoItem(this.item, this.id1, this.fileToUpload)
       .subscribe(data=>{
 
 
@@ -137,5 +139,9 @@ export class ItemsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+}
 
 }

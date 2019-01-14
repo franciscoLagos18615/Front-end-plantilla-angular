@@ -27,6 +27,10 @@ import { RegisterComponent } from '../../register/register.component';
 import { LoginComponent } from '../../login/login.component';
 import { PaneladministracionComponent } from '../../paneladministracion/paneladministracion.component';
 import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
+import { DetailsUploadComponent } from '../../upload/details-upload.component';
+import { FormUploadComponent } from '../../upload/form-upload.component';
+
+
 
 
 
@@ -72,6 +76,8 @@ import {
     LoginComponent,
     PaneladministracionComponent,
     PaneladmineditComponent,
+    DetailsUploadComponent,
+    FormUploadComponent,
     KeysPipe,
   ]
 })

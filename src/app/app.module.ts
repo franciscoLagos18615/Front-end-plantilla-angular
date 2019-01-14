@@ -13,6 +13,7 @@ import { Ng2Rut } from 'ng2-rut';
 import { AuthService } from './auth/auth.service';
 import { TokenStorageService } from './auth/token-storage.service';
 import { AuthGuardService } from './guard/auth-guard.service';
+import { UploadfileService } from './services/uploadfile.service';
 
 
 
@@ -43,11 +44,18 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PaneladministracionComponent } from './paneladministracion/paneladministracion.component';
 import { PaneladmineditComponent } from './paneladministracion/paneladminedit.component';
+import { DetailsUploadComponent } from './upload/details-upload.component';
+import { FormUploadComponent } from './upload/form-upload.component';
+
 
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+
+
+
 
 
 
@@ -90,7 +98,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
   ],
   providers: [RemesasService, ItemsService, PresupuestosService, ExportexcelService, UserService, httpInterceptorProviders, AuthService,
-     TokenStorageService, AuthGuardService ],
+     TokenStorageService, AuthGuardService, UploadfileService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
