@@ -29,6 +29,8 @@ import { PaneladministracionComponent } from '../../paneladministracion/paneladm
 import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
 import { DetailsUploadComponent } from '../../upload/details-upload.component';
 import { FormUploadComponent } from '../../upload/form-upload.component';
+import { UserEditComponent } from '../../user-profile/user-edit.component';
+
 
 
 
@@ -78,6 +80,7 @@ import {
     PaneladmineditComponent,
     DetailsUploadComponent,
     FormUploadComponent,
+    UserEditComponent,
     KeysPipe,
   ]
 })

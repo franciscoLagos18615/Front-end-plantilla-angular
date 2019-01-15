@@ -1,0 +1,64 @@
+<div class="main-content">
+  <h3 class="text-center">&nbsp; CAMBIAR LA CONTRASEÑA</h3>
+  
+  <button [routerLink]= "['/user-profile']" 
+  class="btn btn-danger ">Regresar</button>
+
+
+  <div class="container-fluid">
+      
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      
+                      <h3>Cambiar contraseña del usuario</h3>
+                  </div>
+                  <div class="card-body">
+                      <form name="form" (ngSubmit)="forma.form.valid && guardar()" #forma="ngForm" novalidate>
+                          
+                          
+                          
+                          
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <label for="validationServer04">Contraseña:</label>
+                                    
+                                      <input 
+                                      matInput 
+                                      [(ngModel)]="user2.password"
+                                      name="password"
+                                      class="form-control is-invalid"
+                                      #password="ngModel" [ngClass]="{'is-invalid':forma.submitted && password.invalid}"
+                                      id="validationServer04"
+                                      
+                                      type="password"
+                                      required>
+                                      <div class="invalid-feedback">
+                                          INGRESE UNA CONTRASEÑA
+                                        </div>
+                                    
+                                  </div>
+                              </div>
+                          
+                          
+                         
+                        
+                          <button 
+                          mat-raised-button type="Submit" class="btn btn-info pull-right"
+                          >Guardar cambios</button >
+
+                           <div *ngIf="seActualizo" class="alert alert-success" role="alert">
+                                   Contraseña actualizada correctamente
+                            </div>
+                          
+                          
+                          
+                      </form>
+                  </div>
+              </div>
+          </div>
+        
+      </div>
+  </div>
+</div>

@@ -27,6 +27,7 @@ import { PaneladministracionComponent } from '../../paneladministracion/paneladm
 import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
 import { FormUploadComponent } from '../../upload/form-upload.component';
 import { DetailsUploadComponent } from '../../upload/details-upload.component';
+import { UserEditComponent } from '../../user-profile/user-edit.component';
 
 
 
@@ -78,6 +79,7 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'home',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent , canActivate: [AuthGuardService] },
+    { path: 'user-profileEdit/:id',   component: UserEditComponent , canActivate: [AuthGuardService] },
     { path: 'register',      component: RegisterComponent, canActivate: [AuthGuardService] },
     { path: 'login',      component: LoginComponent },
     { path: 'remesas',     component: TableListComponent , canActivate: [AuthGuardService] },

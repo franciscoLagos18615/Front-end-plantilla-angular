@@ -37,6 +37,8 @@
                                     <th>
                                         Perfil
                                     </th>
+                                    <th class="text-center">
+                                        Opciones </th>
                                    
                                     
                                    
@@ -47,10 +49,18 @@
                                       <td>{{info.username}}</td>
                                       <td>{{usuarios.email}}</td>
                                       <td>{{info.authorities}}</td>
+                                      
                                       <td class="text-center">
                                           &nbsp;
                                           &nbsp;
                                           &nbsp;
+                                <button  
+                                
+                                [routerLink]="['/user-profileEdit', usuarios.id]"
+                                type="button" class="btn btn-outline-success btn-sm" >
+                                <i class="fas fa-edit"></i>
+                                Cambiar Contraseña
+                                </button>
                                    
                                       </td>
                                       
