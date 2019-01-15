@@ -155,10 +155,13 @@
                             <button [routerLink]="['/remesaDetail', items[k].item_id ,'file']"
                             mat-raised-button type="submit" class="btn btn-info pull-right btn-sm"> <i class="fas fa-plus-circle" style="size:5x;"></i>Agregar PDF</button> 
                             &nbsp;
-                            <a class="btn btn-warning pull-right btn-sm" [href]="urlExportable" role="button"><i class="fas fa-file-pdf" ></i> Ver</a>
+                            <button [routerLink]="['/remesaDetail', items[k].item_id ,'fileAll']"
+                            mat-raised-button type="submit" class="btn btn-warning pull-right btn-sm" ><i class="fas fa-file-pdf" ></i> Ver</button>
                            
                             &nbsp; 
+                            <!--
                             <button mat-raised-button type="submit" class="btn btn-success pull-right btn-sm"><i class="fas fa-edit" style="size:5x;"></i>Editar </button> 
+                          -->
                           </td>
                           
                         </tr>

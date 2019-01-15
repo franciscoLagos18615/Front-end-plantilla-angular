@@ -26,6 +26,7 @@ import { AuthGuardService } from './../../guard/auth-guard.service';
 import { PaneladministracionComponent } from '../../paneladministracion/paneladministracion.component';
 import { PaneladmineditComponent } from '../../paneladministracion/paneladminedit.component';
 import { FormUploadComponent } from '../../upload/form-upload.component';
+import { DetailsUploadComponent } from '../../upload/details-upload.component';
 
 
 
@@ -83,6 +84,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'remesa/:id',     component: RemesaComponent , canActivate: [AuthGuardService] },
     { path: 'remesaDetail/:id',     component: RemesadetailComponent , canActivate: [AuthGuardService] },
     { path: 'remesaDetail/:id/file',     component: FormUploadComponent , canActivate: [AuthGuardService] },
+    { path: 'remesaDetail/:id/fileAll',     component: DetailsUploadComponent , canActivate: [AuthGuardService] },
     { path: 'remesa/:id1/item/:id2',     component: ItemsComponent , canActivate: [AuthGuardService] },
     { path: 'remesaPapelera',     component: RemesapapeleraComponent , canActivate: [AuthGuardService] },
     { path: 'presupuestos',     component: TypographyComponent , canActivate: [AuthGuardService]  },

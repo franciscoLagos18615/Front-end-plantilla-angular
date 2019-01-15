@@ -3,7 +3,7 @@ import { UploadfileService } from '../services/uploadfile.service';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TokenStorageService } from '../auth/token-storage.service';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form-upload',
@@ -18,7 +18,7 @@ export class FormUploadComponent implements OnInit {
   info: any;
 
   constructor(private uploadService: UploadfileService, private router: Router, private route: ActivatedRoute,
-    private token: TokenStorageService) {
+    private token: TokenStorageService, private location: Location) {
 
       this.route.params
       .subscribe(
@@ -88,5 +88,10 @@ export class FormUploadComponent implements OnInit {
 
     this.selectedFiles = undefined;
   }
+  //boton back
+  goBack(): void {
+    this.location.back();
+  }
+
 
 }

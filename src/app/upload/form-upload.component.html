@@ -1,6 +1,12 @@
 <div class="main-content" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion' " >
           
     <div class="container-fluid">
+            <button (click)="goBack()"
+            class="btn btn-outline-success"><i class="fas fa-undo"></i> Regresar </button>
+            &nbsp; 
+            &nbsp; 
+            &nbsp; 
+            
         <div *ngIf="currentFileUpload" class="progress">
             <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
               aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
@@ -11,7 +17,7 @@
             <input type="file" (change)="selectFile($event)">
           </label>
            
-          <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+          <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Subir Archivo</button>
 
       </div>
     </div>

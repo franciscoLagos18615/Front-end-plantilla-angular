@@ -1,2 +1,76 @@
+<!--
+<div class="main-content" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion' " >
+        <div class="container-fluid">
+        <button class="button btn-info" *ngIf='showFile' (click)='showFiles(false)'>Ocultar Archivos asociados</button>
+ 
+        <button class="button btn-info" *ngIf='!showFile' (click)='showFiles(true)'>Mostrar Archivos asociados</button>
+         
+        <div [hidden]="!showFile">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Lista de archivos</div>
+           
+            <div *ngFor=" let k of files2 | keys; let i = index">
+                    <div class="panel-body">
+                        
+                        <a href="http://localhost:8080/api/file/{{files2[k].file_id}}">{{files2[k].name}}</a>
+                          
+                    </div>
+                  </div>
+          </div>
+        </div>
+    </div>
 
+</div>
+-->
+<div class="main-content" *ngIf="authority === 'admin' || authority === 'upf' || authority === 'gobernacion' ">
+    <button (click)="goBack()"
+    class="btn btn-outline-success"><i class="fas fa-undo"></i> Regresar </button>
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+        <div class="container-fluid">
+                
+            
+            
+              
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title text-center">LISTADO DE ARCHIVOS</h4>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    
+                                    <tbody>
+                                        <tr *ngFor=" let k of files2 | keys; let i = index">
+                                            
+                                          <td><a href="http://localhost:8080/api/file/{{files2[k].file_id}}">{{files2[k].name}}  <i class="fas fa-file-download"></i></a></td>
+                                          
+                                          <td class="text-center">
+                                              &nbsp;
+                                              &nbsp;
+                                              &nbsp;
+                                          
+                                          
+                                          
+      
+                                          </td>
+                                          
+      
+                                        </tr>
+                                                         
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+      </div>
 

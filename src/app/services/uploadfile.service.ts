@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import {Http, Headers} from '@angular/http';
 import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+
 
 
 @Injectable()
@@ -40,6 +42,21 @@ export class UploadfileService {
     let url = 'http://localhost:8080/api/file/';
     let url2= `${url}${id}`;
     return this.http.get(url2);
+  }
+
+  //metodo que extrae todos los archivos de acuerdo a un item_id
+
+  getFilesForItemId(id: number){
+    let url = 'http://localhost:8080/api/file/';
+    let url2 = `${url}${id}/all`;
+    console.log('la url del get item for item id es : ',url2);
+    return this.http2.get(url2)
+      .pipe(
+        map(
+          res => res.json()
+
+        )
+      );
   }
 
 }
