@@ -14,7 +14,9 @@ import { TokenStorageService } from '../auth/token-storage.service';
 export class TableListComponent implements OnInit {
   remesas: any[] = [];
   info: any;
-
+  roles: string[] = [];
+  authority: string;
+  
   constructor(private _remesasService: RemesasService, private router: Router, private http: Http, 
     private token: TokenStorageService) { 
     this._remesasService.getRemesas()

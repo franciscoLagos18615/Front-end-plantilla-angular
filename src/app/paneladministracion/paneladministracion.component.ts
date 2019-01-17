@@ -8,9 +8,11 @@ import { TokenStorageService } from '../auth/token-storage.service';
   styleUrls: []
 })
 export class PaneladministracionComponent implements OnInit {
+  roles: string[] = [];
+  authority: string;
   usuarios: any[] = [];
   info: any;
-  segundoRol: boolean: false;
+  segundoRol: boolean = false;
 
   constructor(private userService: UserService, private token: TokenStorageService) { 
     this.userService.getAllUser()

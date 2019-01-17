@@ -10,6 +10,8 @@ import { User } from '../interfaces/user.interface';
   styles: []
 })
 export class PaneladmineditComponent implements OnInit {
+  roles: string[] = [];
+  authority: string;
   role: any= [];
   //user: User;
   user: User = {

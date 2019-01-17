@@ -11,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   role: any= [];
-  
+  roles: string[] = [];
+  authority: string;
   user: User = {
     username: null,
     email: null,
